@@ -36,7 +36,7 @@ function loadGuestbookEntries() {
     const entries = JSON.parse(localStorage.getItem('guestbookEntries') || '[]');
     const defaultEntry = {
         name: "Tommy's Mom",
-        message: "Love you guys! Can't wait for the next show! <¸",
+        message: "Love you guys! Can't wait for the next show! <ï¿½",
         date: "2024-06-16"
     };
     
@@ -82,7 +82,7 @@ guestbookForm?.addEventListener('submit', (e) => {
     guestbookForm.reset();
     
     // Show success message
-    alert('Thanks for signing our guestbook! <¸');
+    alert('Thanks for signing our guestbook! <ï¿½');
 });
 
 // Newsletter form
@@ -98,7 +98,7 @@ newsletterForm?.addEventListener('submit', (e) => {
     
     // Check if already subscribed
     if (subscribers.includes(email)) {
-        alert("You're already subscribed! <µ");
+        alert("You're already subscribed! <ï¿½");
         return;
     }
     
@@ -115,6 +115,20 @@ newsletterForm?.addEventListener('submit', (e) => {
 
 // Load guestbook entries on page load
 document.addEventListener('DOMContentLoaded', () => {
+    // Check if running locally and show fallback guestbook
+    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.hostname === '') {
+        const disqusThread = document.getElementById('disqus_thread');
+        const localGuestbook = document.getElementById('local-guestbook');
+        
+        if (disqusThread) {
+            disqusThread.style.display = 'none';
+        }
+        
+        if (localGuestbook) {
+            localGuestbook.classList.remove('hidden');
+        }
+    }
+    
     loadGuestbookEntries();
     
     // Add scroll effect to header

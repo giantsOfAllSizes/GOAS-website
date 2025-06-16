@@ -222,7 +222,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
                 <!-- Tommy -->
                 <div class="retro-border p-6 bg-black/50">
-                    <img src="tommy.jpg" alt="Tommy Crotty" class="w-full h-64 object-cover rounded mb-4">
+                    <img src="tommy.jpg" alt="Tommy Crotty" class="w-full h-auto rounded mb-4">
                     <h3 class="font-bebas text-2xl text-pink-500 mb-2">Tommy Crotty</h3>
                     <p class="text-sm mb-4">
                         Hi, I'm Tommy! I mostly play drums but I can also play mallet percussion, 
@@ -235,7 +235,7 @@
                 
                 <!-- Jakob -->
                 <div class="retro-border p-6 bg-black/50">
-                    <img src="jakob.jpeg" alt="Jakob Stein" class="w-full h-64 object-cover rounded mb-4">
+                    <img src="jakob.jpeg" alt="Jakob Stein" class="w-full h-auto rounded mb-4">
                     <h3 class="font-bebas text-2xl text-cyan-500 mb-2">Jakob Stein</h3>
                     <p class="text-sm mb-4">
                         My name is Jakob Stein. I am a multi instrumentalist with a focus on guitar. 
@@ -248,7 +248,7 @@
                 
                 <!-- Dylan -->
                 <div class="retro-border p-6 bg-black/50">
-                    <img src="dylan.jpeg" alt="Dylan Renner" class="w-full h-64 object-cover rounded mb-4">
+                    <img src="dylan.jpeg" alt="Dylan Renner" class="w-full h-auto rounded mb-4">
                     <h3 class="font-bebas text-2xl text-pink-500 mb-2">Dylan Renner</h3>
                     <p class="text-sm mb-4">
                         I'm a multi instrumentalist with a focus on bass and guitar. I write songs 
@@ -262,7 +262,7 @@
                 
                 <!-- Calvin -->
                 <div class="retro-border p-6 bg-black/50">
-                    <img src="calvin.jpeg" alt="Calvin Cooper" class="w-full h-64 object-cover rounded mb-4">
+                    <img src="calvin.jpeg" alt="Calvin Cooper" class="w-full h-auto rounded mb-4">
                     <h3 class="font-bebas text-2xl text-cyan-500 mb-2">Calvin Cooper</h3>
                     <p class="text-sm mb-4">
                         Hi, my name is Calvin, and I am a multi instrumentalist and vocalist, 
@@ -301,24 +301,39 @@
             </h2>
             
             <div class="max-w-2xl mx-auto">
-                <div class="retro-border p-6 bg-black mb-8">
-                    <h3 class="text-xl mb-4 text-pink-500">Sign our guestbook!</h3>
-                    <form id="guestbook-form" class="space-y-4">
-                        <input type="text" id="gb-name" placeholder="Your Name" required
-                               class="w-full p-3 bg-gray-900 border border-gray-700 rounded focus:border-pink-500 outline-none">
-                        <textarea id="gb-message" placeholder="Leave a message for the band!" required
-                                  rows="3" class="w-full p-3 bg-gray-900 border border-gray-700 rounded focus:border-pink-500 outline-none"></textarea>
-                        <button type="submit" class="px-6 py-3 bg-pink-500 hover:bg-pink-600 text-black font-bold transition">
-                            Sign Guestbook
-                        </button>
-                    </form>
+                <!-- Option 1: Disqus Comments (Recommended) -->
+                <div id="disqus_thread" class="bg-black/50 p-6 rounded-lg">
+                    <!-- Disqus will load here -->
+                    <p class="text-gray-400 text-center">Loading guestbook...</p>
                 </div>
                 
-                <!-- Guestbook Entries -->
-                <div id="guestbook-entries" class="space-y-4">
-                    <div class="retro-border p-4 bg-black/50">
-                        <p class="text-sm text-gray-400">Tommy's Mom - 2024-06-16</p>
-                        <p class="mt-2">Love you guys! Can't wait for the next show! 🎸</p>
+                <!-- Option 2: HTML Comment Box (Alternative) -->
+                <!-- Uncomment below if using HTML Comment Box instead of Disqus -->
+                <!-- <div id="HCB_comment_box" class="bg-black/50 p-6 rounded-lg">
+                    <a href="http://www.htmlcommentbox.com">Widget</a> is loading comments...
+                </div> -->
+                
+                <!-- Fallback for local development -->
+                <div id="local-guestbook" class="hidden">
+                    <div class="retro-border p-6 bg-black mb-8">
+                        <h3 class="text-xl mb-4 text-pink-500">Sign our guestbook!</h3>
+                        <form id="guestbook-form" class="space-y-4">
+                            <input type="text" id="gb-name" placeholder="Your Name" required
+                                   class="w-full p-3 bg-gray-900 border border-gray-700 rounded focus:border-pink-500 outline-none">
+                            <textarea id="gb-message" placeholder="Leave a message for the band!" required
+                                      rows="3" class="w-full p-3 bg-gray-900 border border-gray-700 rounded focus:border-pink-500 outline-none"></textarea>
+                            <button type="submit" class="px-6 py-3 bg-pink-500 hover:bg-pink-600 text-black font-bold transition">
+                                Sign Guestbook
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <!-- Guestbook Entries -->
+                    <div id="guestbook-entries" class="space-y-4">
+                        <div class="retro-border p-4 bg-black/50">
+                            <p class="text-sm text-gray-400">Tommy's Mom - 2024-06-16</p>
+                            <p class="mt-2">Love you guys! Can't wait for the next show! 🎸</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -337,13 +352,20 @@
                     Join our mailing list to get updates about new music, shows, and exclusive content!
                 </p>
                 
-                <form id="newsletter-form" class="flex flex-col md:flex-row gap-4 justify-center">
-                    <input type="email" placeholder="your@email.com" required
-                           class="px-6 py-3 bg-gray-900 border border-gray-700 rounded focus:border-pink-500 outline-none md:w-96">
-                    <button type="submit" class="px-8 py-3 bg-pink-500 hover:bg-pink-600 text-black font-bold transition">
-                        Subscribe
-                    </button>
-                </form>
+                <!-- Mailchimp Signup Form -->
+                <div id="mc_embed_signup">
+                    <form action="https://YOUR-MAILCHIMP-URL-HERE" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate flex flex-col md:flex-row gap-4 justify-center" target="_blank" novalidate>
+                        <input type="email" value="" name="EMAIL" id="mce-EMAIL" placeholder="your@email.com" required
+                               class="px-6 py-3 bg-gray-900 border border-gray-700 rounded focus:border-pink-500 outline-none md:w-96">
+                        <!-- real people should not fill this in and expect good things -->
+                        <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                            <input type="text" name="b_XXXXXXXXXXXXXXXXXXXXXXXXXXXXX_XX" tabindex="-1" value="">
+                        </div>
+                        <button type="submit" name="subscribe" id="mc-embedded-subscribe" class="px-8 py-3 bg-pink-500 hover:bg-pink-600 text-black font-bold transition">
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
@@ -394,5 +416,31 @@
     </footer>
     
     <script src="script.js"></script>
+    
+    <!-- Disqus Script - Replace YOUR-DISQUS-SHORTNAME with your actual shortname -->
+    <script>
+        var disqus_config = function () {
+            this.page.url = 'https://giantsofallsizes.net/#guestbook';
+            this.page.identifier = 'goas-guestbook';
+        };
+        
+        (function() {
+            var d = document, s = d.createElement('script');
+            s.src = 'https://YOUR-DISQUS-SHORTNAME.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    
+    <!-- Alternative: HTML Comment Box Script -->
+    <!-- Uncomment if using HTML Comment Box instead of Disqus -->
+    <!-- <link rel="stylesheet" type="text/css" href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
+    <script type="text/javascript" id="hcb">
+        if(!window.hcb_user){hcb_user={};}
+        (function(){var s=document.createElement("script"), l=hcb_user.PAGE || (""+window.location).replace(/'/g,"%27"), h="https://www.htmlcommentbox.com";
+        s.setAttribute("type","text/javascript");
+        s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&mod=%241%24wq1rdBcg%24Vp2GIwLqBr5c2sseVhTZo1"+"&opts=16798&num=10&ts=1725468000000");
+        if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})();
+    </script> -->
 </body>
 </html>
