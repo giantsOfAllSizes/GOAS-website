@@ -1,143 +1,59 @@
-/* Import Google Font for retro vibe */
-@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
-
-html, body {
+html {
   height: 100%;
   width: 100%;
-  margin: 0;
-  font-family: 'VT323', monospace; /* Use VT323 with a fallback */
-  background-color: #f0f0f0; /* Light gray background */
-  color: #333;
+  font-family:monospace;
 }
 
-/* --- Header and Navigation --- */
-.header {
-  text-align: center;
-  padding: 20px 10%;
-  border-bottom: 2px solid #333;
+.top{
+  text-align:center;
 }
-
-.header h1 {
-  font-size: 50px;
-  margin: 0;
-  color: #d9573a; /* Retro orange color */
-}
-
-.header p {
-  font-size: 20px;
-  margin: 10px 0;
-}
-
-.header img {
-  width: 200px; /* Set a fixed width */
-  height: auto;
-  margin-top: 10px;
-}
-
-nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 20px 0 0 0;
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-}
-
-nav a {
-  text-decoration: none;
-  color: #333;
-  font-size: 24px;
-  padding: 5px 10px;
-  border: 1px solid transparent;
-  transition: all 0.3s ease;
-}
-
-nav a:hover {
-  color: #d9573a;
-  border-bottom: 1px solid #d9573a;
-}
-
-/* --- Main Content --- */
-.main-content {
-  padding: 20px 10%;
-}
-
-h2 {
-  font-size: 40px;
-  text-align: center;
-  color: #333;
-}
-
-/* --- Layout --- */
-.row {
-  display: flex;
-  gap: 20px; /* Space between columns */
-  margin-top: 20px;
-}
-
 .column {
-  flex: 1; /* Each column takes up equal space */
-  text-align: center;
+  float: left;
+  width: 33.33%;
 }
 
-.column img {
-  width: 100%;
-  height: auto;
-  border: 2px solid #333;
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
-.column h3 {
-  font-size: 30px;
-  margin-top: 0;
+.body{
+  margin-left:10%;
+  margin-right:10%;
+}
+h1{
+  font-size:50px;
+}
+h2{
+  font-size:40px;
+}
+h3{
+  font-weight:normal;
+}
+.column2 {
+  float: left;
+  width: 50%;
+  text-align:center;
 }
 
-.column p {
-  font-size: 18px;
-  text-align: left;
+/* Clear floats after the columns */
+.row2:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
-/* --- About Page Specifics --- */
-.band-member {
-  border: 2px solid #333;
-  padding: 15px;
-  margin-bottom: 20px;
+.column3 {
+  float: center;
+  width: 50%;
+  text-align:center;
 }
 
-.band-member h3 {
-  font-size: 28px;
-  margin-bottom: 10px;
-}
-
-.band-member ul {
-  list-style: square;
-  padding-left: 20px;
-}
-
-/* --- Bandcamp Iframe --- */
-.bandcamp-container {
-  text-align: center;
-  margin: 40px 0;
-}
-
-iframe {
-  border: 2px solid #333;
-  width: 100%;
-  max-width: 400px; /* Max width for larger screens */
-  height: 470px;
-}
-
-/* --- Responsive Design --- */
-@media (max-width: 768px) {
-  .row {
-    flex-direction: column; /* Stack columns on smaller screens */
-  }
-
-  .header h1 {
-    font-size: 40px;
-  }
-
-  nav ul {
-    flex-direction: column;
-    gap: 10px;
-  }
+/* Clear floats after the columns */
+.row3:after {
+  content: "";
+  display: table;
+  clear: both;
 }
