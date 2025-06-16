@@ -69,65 +69,84 @@ The website is fully responsive and tested on:
 2. Open `index.html` in a web browser
 3. No build process required - uses CDN for dependencies
 
-## 📧 Email List Setup (Mailchimp)
+## 📧 Email List Setup (Buttondown)
 
-The website uses Mailchimp for email list management. To set it up:
+The website uses Buttondown for email list management - a simple, privacy-focused newsletter service perfect for indie bands.
 
-1. **Create a Mailchimp Account**
-   - Go to [mailchimp.com](https://mailchimp.com) and sign up (free tier available)
-   - Create an audience for your band
+### Why Buttondown?
+- **Free for first 100 subscribers** (perfect for starting bands)
+- **No tracking or analytics** by default (privacy-focused)
+- **Simple embed forms** that work with static sites
+- **Markdown support** for writing newsletters
+- **API access** for future integrations
 
-2. **Get Your Signup Form URL**
-   - In Mailchimp, go to Audience → Signup forms
-   - Select "Embedded forms"
-   - Choose "Naked" form style
-   - Copy the form action URL from the code
+### Setup Instructions:
 
-3. **Update the Website**
+1. **Create a Buttondown Account**
+   - Go to [buttondown.com](https://buttondown.com) and sign up
+   - Choose a username (this will be your newsletter URL)
+
+2. **Update the Website**
    - Open `index.html`
-   - Find `https://YOUR-MAILCHIMP-URL-HERE` (line ~342)
-   - Replace with your Mailchimp form action URL
-   - Update the hidden field name (line ~347) with your list ID
+   - Find `giantsofallsizes` in the form action URL (line ~356)
+   - Replace with your Buttondown username
+
+3. **Customize Your Newsletter**
+   - In Buttondown settings, add your band logo
+   - Set up a custom domain if desired
+   - Configure your welcome email
 
 4. **Test the Integration**
    - Submit a test email on your website
-   - Check your Mailchimp audience to confirm it was added
+   - Check your Buttondown subscribers to confirm
 
-## 💬 Guestbook Setup (Disqus)
+## 💬 Guestbook
 
-The website uses Disqus for the guestbook functionality. To set it up:
+The website uses a simple localStorage-based guestbook that stores messages directly in visitors' browsers.
 
-1. **Create a Disqus Account**
-   - Go to [disqus.com](https://disqus.com) and sign up
-   - Choose "I want to install Disqus on my site"
+### Features:
+- **No backend required** - works on any static hosting
+- **Privacy-focused** - no data sent to external services
+- **Instant updates** - messages appear immediately
+- **Persistent storage** - messages saved between visits
 
-2. **Configure Your Site**
-   - Website Name: Giants of All Sizes
-   - Category: Music
-   - Note your shortname (e.g., "giantsofallsizes")
+### How it Works:
+- Messages are stored in the browser's localStorage
+- Each visitor sees their own messages plus a default message
+- Great for creating a retro guestbook feel
+- No moderation needed since messages are local
 
-3. **Update the Website**
-   - Open `index.html`
-   - Find `YOUR-DISQUS-SHORTNAME` (line ~407)
-   - Replace with your actual Disqus shortname
+### Future Enhancement Options:
+If you want a shared guestbook in the future, consider:
+- Using a service like Formspree or Netlify Forms
+- Adding a simple backend with Firebase or Supabase
+- Implementing a static site comment system
 
-4. **Styling Disqus**
-   - In Disqus admin, go to Settings → General
-   - Set color scheme to "Dark" to match the website
-   - Customize appearance in Settings → Appearance
+## 🎤 Managing Shows
 
-### Alternative: HTML Comment Box
+The website includes a simple show management system. To add/edit shows:
 
-If you prefer not to use Disqus, you can use HTML Comment Box:
+1. **Open shows.json** in the root directory
+2. **Add show information** following this format:
+```json
+{
+  "date": "2025-07-15",
+  "venue": "The Fillmore",
+  "city": "Philadelphia",
+  "state": "PA",
+  "ticketUrl": "https://ticketlink.com",
+  "soldOut": false
+}
+```
+3. **Save the file** - shows will automatically display in chronological order
 
-1. Go to [htmlcommentbox.com](https://www.htmlcommentbox.com)
-2. Configure your widget (choose dark theme)
-3. Copy the provided code
-4. In `index.html`, comment out the Disqus section and uncomment the HTML Comment Box section
-
-### Local Development Note
-
-When running locally, the guestbook will automatically fall back to a localStorage-based version for testing.
+### Show Properties:
+- `date`: Show date in YYYY-MM-DD format
+- `venue`: Name of the venue
+- `city`: City name
+- `state`: State abbreviation
+- `ticketUrl`: Link to ticket sales (optional)
+- `soldOut`: Set to true if show is sold out
 
 ## 📝 Future Enhancements
 

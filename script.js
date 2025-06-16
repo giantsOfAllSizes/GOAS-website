@@ -113,23 +113,72 @@ newsletterForm?.addEventListener('submit', (e) => {
     alert("Thanks for subscribing! You'll be the first to know about new music and shows! >");
 });
 
+// Load shows from JSON
+async function loadShows() {
+    const showsContainer = document.getElementById('shows-container');
+    
+    try {
+        const response = await fetch('shows.json');
+        const shows = await response.json();
+        
+        if (shows.length === 0) {
+            showsContainer.innerHTML = `
+                <div class="text-center text-gray-400">
+                    <p class="text-lg">No upcoming shows at the moment.</p>
+                    <p class="mt-2">Check back soon!</p>
+                </div>
+            `;
+            return;
+        }
+        
+        // Sort shows by date
+        shows.sort((a, b) => new Date(a.date) - new Date(b.date));
+        
+        // Generate HTML for shows
+        const showsHTML = shows.map(show => {
+            const date = new Date(show.date);
+            const dateStr = date.toLocaleDateString('en-US', { 
+                weekday: 'short', 
+                month: 'short', 
+                day: 'numeric',
+                year: 'numeric'
+            });
+            
+            return `
+                <div class="retro-border p-6 bg-gray-900/50 hover:bg-gray-900/80 transition">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
+                        <div>
+                            <h3 class="text-xl font-bold text-pink-500">${dateStr}</h3>
+                            <p class="text-lg">${show.venue}</p>
+                            <p class="text-gray-400">${show.city}, ${show.state}</p>
+                        </div>
+                        ${show.soldOut ? 
+                            '<span class="mt-4 md:mt-0 px-4 py-2 bg-gray-600 text-gray-300 font-bold">SOLD OUT</span>' :
+                            show.ticketUrl ? 
+                                `<a href="${show.ticketUrl}" target="_blank" class="mt-4 md:mt-0 px-4 py-2 bg-pink-500 hover:bg-pink-600 text-black font-bold transition inline-block">Get Tickets</a>` :
+                                '<span class="mt-4 md:mt-0 px-4 py-2 bg-gray-700 text-gray-300">Tickets Coming Soon</span>'
+                        }
+                    </div>
+                </div>
+            `;
+        }).join('');
+        
+        showsContainer.innerHTML = showsHTML;
+        
+    } catch (error) {
+        console.error('Error loading shows:', error);
+        showsContainer.innerHTML = `
+            <div class="text-center text-gray-400">
+                <p>Error loading shows. Please try again later.</p>
+            </div>
+        `;
+    }
+}
+
 // Load guestbook entries on page load
 document.addEventListener('DOMContentLoaded', () => {
-    // Check if running locally and show fallback guestbook
-    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.hostname === '') {
-        const disqusThread = document.getElementById('disqus_thread');
-        const localGuestbook = document.getElementById('local-guestbook');
-        
-        if (disqusThread) {
-            disqusThread.style.display = 'none';
-        }
-        
-        if (localGuestbook) {
-            localGuestbook.classList.remove('hidden');
-        }
-    }
-    
     loadGuestbookEntries();
+    loadShows();
     
     // Add scroll effect to header
     const header = document.querySelector('header');

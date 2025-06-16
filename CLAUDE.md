@@ -37,9 +37,10 @@ This is the official website for Giants of All Sizes, a 4-piece indie band from 
 - Responsive grid layout
 
 ### 5. Interactive Features
-- **Guestbook**: Uses Disqus for production, localStorage fallback for development
-- **Newsletter**: Mailchimp integration for professional email management
+- **Guestbook**: Simple localStorage-based guestbook (no backend needed)
+- **Newsletter**: Buttondown integration (free for 100 subscribers)
 - **Mobile Menu**: Hamburger menu for small screens
+- **Shows**: JSON-based show management
 
 ## Technical Stack
 
@@ -100,17 +101,22 @@ This is the official website for Giants of All Sizes, a 4-piece indie band from 
 
 ## Service Integrations
 
-### Email List (Mailchimp)
-- Production: Mailchimp embedded form
-- Replace `YOUR-MAILCHIMP-URL-HERE` with actual form action URL
-- Update hidden field with correct list ID
-- Free tier supports up to 500 contacts
+### Email List (Buttondown)
+- Simple newsletter service perfect for bands
+- Free for first 100 subscribers
+- Replace `giantsofallsizes` with your Buttondown username
+- No complex setup required
 
-### Guestbook (Disqus)
-- Production: Disqus commenting system
-- Replace `YOUR-DISQUS-SHORTNAME` with actual shortname
-- Configure dark theme in Disqus admin
-- Alternative: HTML Comment Box for simpler setup
+### Guestbook
+- localStorage-based (no backend needed)
+- Messages stored in visitor's browser
+- Private and simple solution
+- No moderation required
+
+### Shows Management
+- Edit `shows.json` to add/update shows
+- Automatically sorted by date
+- Supports ticket links and sold out status
 
 ## Future Considerations
 
