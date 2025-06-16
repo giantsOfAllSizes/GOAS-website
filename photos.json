@@ -1,0 +1,71 @@
+{
+  "galleries": [
+    {
+      "id": 1,
+      "title": "Live at The Fillmore",
+      "date": "2024-12-15",
+      "description": "Our biggest show yet!",
+      "coverPhoto": "band1.jpg",
+      "photos": [
+        {
+          "url": "band1.jpg",
+          "caption": "Full band on stage",
+          "photographer": "Jane Doe"
+        },
+        {
+          "url": "tommy.jpg",
+          "caption": "Tommy on drums",
+          "photographer": "Jane Doe"
+        },
+        {
+          "url": "jakob.jpeg",
+          "caption": "Jakob shredding",
+          "photographer": "Jane Doe"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Behind the Scenes",
+      "date": "2024-11-20",
+      "description": "Recording our new demos",
+      "coverPhoto": "calvin.jpeg",
+      "photos": [
+        {
+          "url": "calvin.jpeg",
+          "caption": "Calvin in the studio",
+          "photographer": "Band"
+        },
+        {
+          "url": "dylan.jpeg",
+          "caption": "Dylan laying down bass tracks",
+          "photographer": "Band"
+        },
+        {
+          "url": "merle.jpeg",
+          "caption": "Studio vibes",
+          "photographer": "Band"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Band Photos",
+      "date": "2024-10-01",
+      "description": "Professional photo shoot",
+      "coverPhoto": "littleShits.png",
+      "photos": [
+        {
+          "url": "littleShits.png",
+          "caption": "Band logo design",
+          "photographer": "Band"
+        },
+        {
+          "url": "band1.jpg",
+          "caption": "Group shot",
+          "photographer": "Professional"
+        }
+      ]
+    }
+  ]
+}

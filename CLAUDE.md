@@ -70,23 +70,65 @@ This is the official website for Giants of All Sizes, a 4-piece indie band from 
 - Ensure proper heading hierarchy
 - Keep alt text on all images
 
+## Implemented Features
+
+### Navigation & Sections
+- **Home**: Hero section with animated orbs and gradient text
+- **Music**: Bandcamp embed with streaming platform links
+- **News**: Blog system with categories and single post views
+- **Shows**: List/map views with calendar export
+- **Setlists**: Archive with statistics and song requests
+- **About**: Band info and member profiles
+- **Lyrics**: Searchable database with song stories
+- **Photos**: Gallery system with lightbox
+- **Press**: Electronic Press Kit (EPK)
+- **Social**: Multi-platform feed integration
+- **Merch**: External store link
+- **Guestbook**: Third-party comment system
+- **Contact**: Email link
+
+### Data Management
+All content is managed through JSON files:
+- `shows.json`: Tour dates with coordinates
+- `music.json`: Track listings
+- `photos.json`: Gallery data
+- `lyrics.json`: Song lyrics database
+- `epk.json`: Press kit information
+- `fan-content.json`: Fan submissions
+- `blog.json`: News posts
+- `setlists.json`: Show history
+- `interactive.json`: Quiz and countdowns
+
 ## Common Tasks
 
 ### Adding New Shows
 ```javascript
-// Shows should be added to the shows section
-// Format: Date - Venue, City, State
-// Include ticket link when available
+// Edit shows.json
+{
+  "date": "2025-07-15",
+  "venue": "The Fillmore",
+  "city": "Philadelphia",
+  "state": "PA",
+  "ticketUrl": "",
+  "soldOut": false,
+  "coordinates": {
+    "lat": 39.9668,
+    "lng": -75.1347
+  },
+  "address": "29 E Allen St, Philadelphia, PA 19123"
+}
 ```
 
 ### Updating Social Links
-- Social media links are in the footer
-- Currently placeholders - update when band provides handles
+- Social media links are in the footer and social feed section
+- Update usernames in HTML for embed services
+- Instagram requires third-party embed service
 
 ### Modifying Color Scheme
 - Primary gradient: `linear-gradient(45deg, #ff0080, #ff8c00, #40e0d0)`
 - Hover states use semi-transparent versions
 - Background uses dark grays (#1a1a1a, #2d2d2d)
+- Custom marker styles for maps
 
 ## Testing Checklist
 
@@ -107,16 +149,33 @@ This is the official website for Giants of All Sizes, a 4-piece indie band from 
 - Replace `giantsofallsizes` with your Buttondown username
 - No complex setup required
 
-### Guestbook
-- localStorage-based (no backend needed)
-- Messages stored in visitor's browser
-- Private and simple solution
-- No moderation required
+### Guestbook (HTML Comment Box)
+- Third-party service with free tier (100 comments/month)
+- No account required for visitors to comment
+- Custom styled to match site design
+- Alternative Giscus option available (GitHub-based)
+- Setup instructions included in HTML comments
 
 ### Shows Management
 - Edit `shows.json` to add/update shows
-- Automatically sorted by date
+- Includes venue coordinates for map view
+- Interactive map powered by Leaflet.js
+- Calendar export functionality (.ics format)
+- Google Maps integration for directions
 - Supports ticket links and sold out status
+
+### Social Media Integration
+- Instagram: Ready for Behold.so or SnapWidget embed
+- Twitter/X: Live timeline embed configured
+- YouTube: Channel subscription widget
+- TikTok: Profile link (no embed available)
+- Platform switcher for easy navigation
+
+### Interactive Features
+- **Quiz System**: Personality quiz matching fans to band members
+- **Countdown Timers**: Live countdowns to shows and releases
+- **Map Integration**: Interactive venue map with custom markers
+- **Calendar Export**: Download shows to any calendar app
 
 ## Future Considerations
 
@@ -134,4 +193,15 @@ For questions about the website or band:
 
 ---
 
-Last Updated: 2025-06-16
+Last Updated: 2025-01-21
+
+## Recent Updates
+
+- Added interactive map view for shows with Leaflet.js
+- Implemented calendar export for all shows (.ics format)
+- Replaced localStorage guestbook with HTML Comment Box
+- Added personality quiz "Which Band Member Are You?"
+- Implemented countdown timers for upcoming events
+- Added social media feed integration section
+- Enhanced shows with venue coordinates and directions
+- Added Giscus as alternative guestbook option

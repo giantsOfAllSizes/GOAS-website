@@ -1,0 +1,107 @@
+{
+  "band": {
+    "name": "Giants of All Sizes",
+    "genre": "Genre-bending Rock / Indie / Alternative",
+    "hometown": "Philadelphia, PA (Montgomery County)",
+    "formed": "2023",
+    "label": "Independent",
+    "booking": "giantsofallsizes@gmail.com",
+    "website": "https://giantsofallsizes.net"
+  },
+  "bio": {
+    "short": "Giants of All Sizes are a 4-piece genre-bending band from the Philadelphia area. We play all kinds of music from funk to metal. If you can't find one song you like then you probably hate music.",
+    "long": "Emerging from the suburbs of Montgomery County, Giants of All Sizes represents a new generation of Philadelphia rock. The quartet - Tommy Crotty (drums), Jakob Stein (guitar), Dylan Renner (bass), and Calvin Cooper (vocals/multi-instrumentalist) - refuses to be boxed into a single genre, instead creating a sound that spans from funk grooves to metal intensity.\n\nFormed in 2023, the band quickly developed a reputation for their high-energy live shows and eclectic setlists. Currently, they are harvesting the best musical fruits from Montgomery County, and preparing to deliver them directly to your streaming service of choice.\n\nTheir debut demos showcase the band's versatility and commitment to pushing musical boundaries while maintaining an infectious energy that gets crowds moving."
+  },
+  "members": [
+    {
+      "name": "Tommy Crotty",
+      "role": "Drums, Mallet Percussion",
+      "bio": "Hi, I'm Tommy! I mostly play drums but I can also play mallet percussion, and I like to pretend I know how to play guitar sometimes. The things that keep me going are my cat and Jakob Stein.",
+      "influences": "After Midnight – Blink-182, Holiday – Green Day, Zombie – The Cranberries"
+    },
+    {
+      "name": "Jakob Stein",
+      "role": "Guitar, Multi-instrumentalist",
+      "bio": "My name is Jakob Stein. I am a multi instrumentalist with a focus on guitar. I like to make weird music.",
+      "influences": "The Wheel - IDLES, Flimsier - King Krule, Little Dipper - Hum"
+    },
+    {
+      "name": "Dylan Renner",
+      "role": "Bass, Guitar",
+      "bio": "My name is Dylan Renner, I'm a multi instrumentalist with a focus on bass and guitar. I write songs sometimes and I enjoy alternate tunings and weird time signatures.",
+      "influences": "All for You - Chestnut Grove, Endless nameless - Nirvana, At the turf fields - Giraffes?Giraffes!"
+    },
+    {
+      "name": "Calvin Cooper",
+      "role": "Vocals, Multi-instrumentalist",
+      "bio": "Hi, my name is Calvin, and I am a multi instrumentalist and vocalist, and am motivated by my love of God and epic beats.",
+      "influences": "Disenchanted – MCR, Down in the Valley – The Head and the Heart, Bossa Nova Corps – Origami Angel"
+    }
+  ],
+  "achievements": [
+    {
+      "year": 2024,
+      "achievement": "Released debut demo collection"
+    },
+    {
+      "year": 2024,
+      "achievement": "Performed at Underground Arts, Philadelphia"
+    },
+    {
+      "year": 2024,
+      "achievement": "Built dedicated fanbase in Montgomery County area"
+    }
+  ],
+  "technical": {
+    "stageRequirements": [
+      "4 vocal microphones",
+      "Full drum kit with hardware",
+      "2 guitar amplifiers (or direct boxes)",
+      "1 bass amplifier (or direct box)",
+      "Stage monitors (minimum 4 mixes)",
+      "Standard stage lighting"
+    ],
+    "backline": [
+      "Drum kit (kick, snare, 3 toms, hi-hat, 3 cymbal stands)",
+      "Guitar amplifiers (if not provided)",
+      "Bass amplifier (if not provided)",
+      "Keyboard stand (if keyboards used for set)"
+    ],
+    "setupTime": "45 minutes",
+    "soundcheckTime": "30 minutes",
+    "typicalSetLength": "45-60 minutes"
+  },
+  "downloads": [
+    {
+      "type": "Band Photo (High Res)",
+      "filename": "band1.jpg",
+      "size": "2.4 MB",
+      "dimensions": "3000x2000"
+    },
+    {
+      "type": "Logo (Transparent PNG)",
+      "filename": "littleShits.png",
+      "size": "186 KB",
+      "dimensions": "1000x1000"
+    },
+    {
+      "type": "Stage Plot",
+      "filename": "stage-plot.pdf",
+      "size": "156 KB",
+      "available": false
+    },
+    {
+      "type": "Technical Rider",
+      "filename": "tech-rider.pdf",
+      "size": "98 KB",
+      "available": false
+    }
+  ],
+  "socials": {
+    "instagram": "@giantsofallsizes",
+    "youtube": "@giantsofallsizes",
+    "bandcamp": "https://giantsofallsizes.bandcamp.com",
+    "spotify": "Coming Soon",
+    "facebook": "Giants of All Sizes"
+  }
+}

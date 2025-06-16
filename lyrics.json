@@ -1,0 +1,93 @@
+{
+  "songs": [
+    {
+      "id": 1,
+      "title": "Demo Song 1",
+      "album": "Giants of All Sizes Demos",
+      "year": 2024,
+      "writtenBy": "Giants of All Sizes",
+      "lyrics": [
+        {
+          "type": "verse",
+          "label": "Verse 1",
+          "lines": [
+            "Walking down the street in Philadelphia",
+            "Thinking about the music we could make",
+            "Four friends with a dream to share",
+            "Every note we play is ours to take"
+          ]
+        },
+        {
+          "type": "chorus",
+          "label": "Chorus",
+          "lines": [
+            "We are giants, giants of all sizes",
+            "Making noise that reaches to the sky",
+            "From the basement to the stages",
+            "We'll keep playing till we die"
+          ]
+        },
+        {
+          "type": "verse",
+          "label": "Verse 2",
+          "lines": [
+            "Tommy on the drums, keeping time so tight",
+            "Jakob's guitar screaming through the night",
+            "Dylan's bass line holding down the groove",
+            "Calvin's voice making everybody move"
+          ]
+        }
+      ],
+      "story": "This was the first song we wrote together as a band. It captures our energy and commitment to making music on our own terms."
+    },
+    {
+      "id": 2,
+      "title": "Underground Dreams",
+      "album": "Giants of All Sizes Demos",
+      "year": 2024,
+      "writtenBy": "Jakob Stein & Dylan Renner",
+      "lyrics": [
+        {
+          "type": "verse",
+          "label": "Verse 1",
+          "lines": [
+            "In the underground, where the music's loud",
+            "We found our sound in the restless crowd",
+            "No rules to follow, no path to take",
+            "Just the noise we're born to make"
+          ]
+        },
+        {
+          "type": "bridge",
+          "label": "Bridge",
+          "lines": [
+            "Turn it up, turn it loud",
+            "We're not backing down",
+            "This is our time now"
+          ]
+        }
+      ],
+      "story": "Written after our first show at Underground Arts. The energy of that night inspired this track."
+    },
+    {
+      "id": 3,
+      "title": "Montgomery County Blues",
+      "album": "Giants of All Sizes Demos",
+      "year": 2024,
+      "writtenBy": "Calvin Cooper",
+      "lyrics": [
+        {
+          "type": "verse",
+          "label": "Verse 1",
+          "lines": [
+            "Suburban streets and shopping malls",
+            "But we've got rock and roll",
+            "Montgomery County can't hold us back",
+            "We're taking control"
+          ]
+        }
+      ],
+      "story": "A love letter to our hometown, acknowledging where we come from while looking forward to where we're going."
+    }
+  ]
+}

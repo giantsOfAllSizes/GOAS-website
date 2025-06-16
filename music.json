@@ -1,0 +1,44 @@
+{
+  "tracks": [
+    {
+      "id": 1,
+      "title": "Demo Track 1",
+      "artist": "Giants of All Sizes",
+      "url": "https://giantsofallsizes.bandcamp.com/track/demo-1",
+      "duration": "3:24",
+      "streamingLinks": {
+        "bandcamp": "https://giantsofallsizes.bandcamp.com",
+        "spotify": "",
+        "apple": "",
+        "youtube": ""
+      }
+    },
+    {
+      "id": 2,
+      "title": "Demo Track 2",
+      "artist": "Giants of All Sizes",
+      "url": "https://giantsofallsizes.bandcamp.com/track/demo-2",
+      "duration": "4:15",
+      "streamingLinks": {
+        "bandcamp": "https://giantsofallsizes.bandcamp.com",
+        "spotify": "",
+        "apple": "",
+        "youtube": ""
+      }
+    },
+    {
+      "id": 3,
+      "title": "Live at Underground Arts",
+      "artist": "Giants of All Sizes",
+      "url": "",
+      "duration": "5:30",
+      "streamingLinks": {
+        "bandcamp": "https://giantsofallsizes.bandcamp.com",
+        "spotify": "",
+        "apple": "",
+        "youtube": ""
+      }
+    }
+  ],
+  "featuredPlaylist": [1, 2, 3]
+}

@@ -1,0 +1,78 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "We're on YouTube!",
+      "slug": "youtube-channel-launch",
+      "date": "2024-12-15",
+      "author": "Giants of All Sizes",
+      "category": "announcement",
+      "featured": true,
+      "excerpt": "Check out our new YouTube channel @giantsofallsizes for live performances, behind-the-scenes content, and more!",
+      "content": "Hey Giants fans!\n\nWe're excited to announce that we've officially launched our YouTube channel! You can find us at @giantsofallsizes.\n\nWhat to expect:\n- Live performance videos\n- Behind-the-scenes studio footage\n- Band member interviews\n- Cover songs and acoustic sessions\n- Tour vlogs\n\nWe're working on uploading content from our recent shows, including our epic set at Underground Arts. Make sure to subscribe and hit the notification bell so you don't miss anything!\n\nRock on,\nGiants of All Sizes",
+      "image": "band1.jpg",
+      "tags": ["youtube", "social media", "videos"]
+    },
+    {
+      "id": 2,
+      "title": "Demo Release: Now on Bandcamp!",
+      "slug": "demo-release-bandcamp",
+      "date": "2024-11-20",
+      "author": "Tommy Crotty",
+      "category": "release",
+      "featured": true,
+      "excerpt": "Our first demo collection is now available on Bandcamp. Three tracks of genre-bending madness!",
+      "content": "What's up everyone!\n\nAfter months of hard work, late nights, and probably too much coffee, we're stoked to announce that our demo collection is now live on Bandcamp!\n\nThe demos include:\n1. Demo Song 1 - Our anthem about being giants of all sizes\n2. Underground Dreams - Inspired by our first real venue show\n3. Montgomery County Blues - A love letter to our hometown\n\nThese tracks were recorded in Jakob's basement studio (shoutout to his neighbors for putting up with us). We experimented with different sounds and styles, and we think these demos really capture what Giants of All Sizes is all about.\n\nYou can stream for free or support us by purchasing the tracks. Every dollar goes right back into making more music!\n\nStay tuned - we're already working on new material that we can't wait to share.\n\n- Tommy",
+      "image": "tommy.jpg",
+      "tags": ["release", "bandcamp", "demos", "recording"]
+    },
+    {
+      "id": 3,
+      "title": "Our First Show at Underground Arts",
+      "slug": "underground-arts-debut",
+      "date": "2024-10-05",
+      "author": "Calvin Cooper",
+      "category": "tour",
+      "featured": false,
+      "excerpt": "We played our first show at the legendary Underground Arts in Philly. What a night!",
+      "content": "Friends,\n\nI'm still buzzing from last night's show at Underground Arts. For those who were there - THANK YOU for bringing the energy! For those who missed it, let me paint you a picture...\n\nWe rolled up to the venue around 5 PM for load-in. The second we walked through those doors, we knew this was different from our basement shows and house parties. This was a REAL venue with a REAL sound system.\n\nDylan almost fell off the stage during 'Underground Dreams' (ironically), but he played it off like a pro. Jakob's guitar solo in the middle set literally gave me chills. And Tommy? That drum solo was absolutely unhinged in the best way possible.\n\nThe crowd was incredible. People were actually singing along to our songs! There was even a small mosh pit during our heavier stuff.\n\nThis is just the beginning. We're hungry for more shows like this. Keep an eye on our shows page - we're booking more dates soon!\n\nPeace and epic beats,\nCalvin",
+      "image": "calvin.jpeg",
+      "tags": ["live", "philadelphia", "underground arts", "tour"]
+    },
+    {
+      "id": 4,
+      "title": "Welcome to Our New Website!",
+      "slug": "new-website-launch",
+      "date": "2024-09-01",
+      "author": "Jakob Stein",
+      "category": "announcement",
+      "featured": false,
+      "excerpt": "Check out our brand new website! Everything you need to know about Giants of All Sizes in one place.",
+      "content": "Hey everyone,\n\nWelcome to giantsofallsizes.net!\n\nWe've been working hard to create a central hub for everything Giants of All Sizes. Here's what you can find on our new site:\n\n- Stream our music\n- Check out upcoming shows\n- Read our lyrics (yes, they actually mean something)\n- See photos from shows and behind the scenes\n- Sign our guestbook (old school, we know)\n- Join our mailing list for updates\n\nWe wanted to create something that reflects who we are as a band - a little weird, definitely loud, and always evolving. The site will grow as we do, so check back often for new content.\n\nSpecial thanks to everyone who's supported us so far. This is just the beginning of something amazing.\n\nStay weird,\nJakob",
+      "image": "jakob.jpeg",
+      "tags": ["website", "announcement", "news"]
+    }
+  ],
+  "categories": [
+    {
+      "slug": "announcement",
+      "name": "Announcements",
+      "color": "pink"
+    },
+    {
+      "slug": "release",
+      "name": "Releases",
+      "color": "cyan"
+    },
+    {
+      "slug": "tour",
+      "name": "Tour",
+      "color": "orange"
+    },
+    {
+      "slug": "studio",
+      "name": "Studio",
+      "color": "purple"
+    }
+  ]
+}

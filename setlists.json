@@ -1,0 +1,146 @@
+{
+  "setlists": [
+    {
+      "id": 1,
+      "date": "2024-12-15",
+      "venue": "The Fillmore",
+      "city": "Philadelphia, PA",
+      "setlist": [
+        {
+          "song": "Giants of All Sizes",
+          "notes": "Extended intro"
+        },
+        {
+          "song": "Underground Dreams",
+          "notes": ""
+        },
+        {
+          "song": "Montgomery County Blues",
+          "notes": "Acoustic version"
+        },
+        {
+          "song": "New Song (Untitled)",
+          "notes": "First time played live!"
+        },
+        {
+          "song": "Demo Song 1",
+          "notes": ""
+        },
+        {
+          "song": "Funk Jam",
+          "notes": "10-minute improvisation"
+        },
+        {
+          "song": "Metal Mayhem",
+          "notes": "With guest guitarist"
+        }
+      ],
+      "encore": [
+        {
+          "song": "Giants of All Sizes",
+          "notes": "Crowd singalong version"
+        }
+      ],
+      "notes": "Sold out show! Best crowd energy yet. Technical difficulties during soundcheck but killed it anyway.",
+      "attendance": 500
+    },
+    {
+      "id": 2,
+      "date": "2024-11-20",
+      "venue": "Underground Arts",
+      "city": "Philadelphia, PA",
+      "setlist": [
+        {
+          "song": "Metal Mayhem",
+          "notes": "Opened heavy"
+        },
+        {
+          "song": "Demo Song 1",
+          "notes": ""
+        },
+        {
+          "song": "Underground Dreams",
+          "notes": "Dedicated to the venue"
+        },
+        {
+          "song": "Funk Jam",
+          "notes": ""
+        },
+        {
+          "song": "Montgomery County Blues",
+          "notes": ""
+        },
+        {
+          "song": "Giants of All Sizes",
+          "notes": "False ending"
+        }
+      ],
+      "encore": [],
+      "notes": "First time at Underground Arts! Sound was incredible. Small but mighty crowd.",
+      "attendance": 150
+    },
+    {
+      "id": 3,
+      "date": "2024-10-31",
+      "venue": "House Show",
+      "city": "Lansdale, PA",
+      "setlist": [
+        {
+          "song": "Spooky Intro",
+          "notes": "Halloween special"
+        },
+        {
+          "song": "Demo Song 1",
+          "notes": "Costume contest during song"
+        },
+        {
+          "song": "Montgomery County Blues",
+          "notes": ""
+        },
+        {
+          "song": "Giants of All Sizes",
+          "notes": ""
+        },
+        {
+          "song": "Monster Mash",
+          "notes": "Halloween cover"
+        }
+      ],
+      "encore": [],
+      "notes": "Halloween house party! Everyone in costume. Calvin dressed as a giant.",
+      "attendance": 75
+    }
+  ],
+  "statistics": {
+    "totalShows": 12,
+    "totalSongsPlayed": 45,
+    "mostPlayedSongs": [
+      {
+        "song": "Giants of All Sizes",
+        "timesPlayed": 12
+      },
+      {
+        "song": "Demo Song 1",
+        "timesPlayed": 10
+      },
+      {
+        "song": "Montgomery County Blues",
+        "timesPlayed": 9
+      },
+      {
+        "song": "Underground Dreams",
+        "timesPlayed": 8
+      },
+      {
+        "song": "Funk Jam",
+        "timesPlayed": 6
+      }
+    ],
+    "averageSetLength": 7,
+    "longestShow": {
+      "date": "2024-12-15",
+      "venue": "The Fillmore",
+      "songs": 8
+    }
+  }
+}

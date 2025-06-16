@@ -1,0 +1,71 @@
+{
+  "submissions": [
+    {
+      "id": 1,
+      "type": "fan-art",
+      "title": "GOAS Live Drawing",
+      "artist": "Sarah M.",
+      "date": "2024-12-01",
+      "description": "Drew this during your show at Underground Arts!",
+      "image": "band1.jpg",
+      "approved": true,
+      "featured": true
+    },
+    {
+      "id": 2,
+      "type": "cover",
+      "title": "Acoustic Cover of Demo Song 1",
+      "artist": "Mike R.",
+      "date": "2024-11-15",
+      "description": "My acoustic take on your first demo. Hope you like it!",
+      "videoUrl": "https://youtube.com/watch?v=example",
+      "image": "tommy.jpg",
+      "approved": true,
+      "featured": false
+    },
+    {
+      "id": 3,
+      "type": "photo",
+      "title": "Front Row at The Fillmore",
+      "artist": "Jessica L.",
+      "date": "2024-10-20",
+      "description": "Best show ever! You guys killed it!",
+      "image": "jakob.jpeg",
+      "approved": true,
+      "featured": false
+    },
+    {
+      "id": 4,
+      "type": "fan-art",
+      "title": "Giants Logo Redesign",
+      "artist": "Alex K.",
+      "date": "2024-09-30",
+      "description": "Made this alternative logo design for fun",
+      "image": "littleShits.png",
+      "approved": true,
+      "featured": true
+    }
+  ],
+  "submissionGuidelines": {
+    "fanArt": [
+      "Original artwork inspired by Giants of All Sizes",
+      "Digital or traditional art welcome",
+      "Include artist name for credit",
+      "By submitting, you grant us permission to share"
+    ],
+    "covers": [
+      "Cover versions of our songs",
+      "Any style or genre welcome",
+      "Video or audio submissions accepted",
+      "Tag us on social media!"
+    ],
+    "photos": [
+      "Concert photos from our shows",
+      "Behind-the-scenes shots",
+      "Fan meetup photos",
+      "Please credit the photographer"
+    ]
+  },
+  "submissionEmail": "giantsofallsizes@gmail.com",
+  "submissionSubject": "Fan Content Submission"
+}

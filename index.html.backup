@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giants of All Sizes - Philadelphia Indie Band</title>
+    <meta name="description" content="Giants of All Sizes - A 4-piece genre-bending band from Philadelphia playing everything from funk to metal">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom styles -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&display=swap');
+        
+        .font-bebas {
+            font-family: 'Bebas Neue', sans-serif;
+        }
+        
+        .font-mono-custom {
+            font-family: 'Space Mono', monospace;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(45deg, #ff0080, #ff8c00, #40e0d0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+        }
+        
+        .glow {
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glow {
+            from { filter: drop-shadow(0 0 10px rgba(255, 0, 128, 0.5)); }
+            to { filter: drop-shadow(0 0 20px rgba(64, 224, 208, 0.8)); }
+        }
+        
+        .retro-border {
+            border: 3px solid transparent;
+            background: linear-gradient(#000, #000) padding-box,
+                        linear-gradient(45deg, #ff0080, #40e0d0) border-box;
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, #ff0080, #40e0d0);
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body class="bg-black text-white font-mono-custom">
+    
+    <!-- Header Navigation -->
+    <header class="fixed top-0 w-full bg-black/90 backdrop-blur-md z-50 border-b border-pink-500/30">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <a href="#" class="font-bebas text-2xl gradient-text">GOAS</a>
+                
+                <!-- Desktop Menu -->
+                <ul class="hidden md:flex space-x-8 text-sm uppercase">
+                    <li><a href="#home" class="hover:text-pink-500 transition">Home</a></li>
+                    <li><a href="#music" class="hover:text-pink-500 transition">Music</a></li>
+                    <li><a href="#shows" class="hover:text-pink-500 transition">Shows</a></li>
+                    <li><a href="#about" class="hover:text-pink-500 transition">About</a></li>
+                    <li><a href="#merch" class="hover:text-pink-500 transition">Merch</a></li>
+                    <li><a href="#guestbook" class="hover:text-pink-500 transition">Guestbook</a></li>
+                    <li><a href="#contact" class="hover:text-pink-500 transition">Contact</a></li>
+                </ul>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-black/95 backdrop-blur-md">
+                <ul class="flex flex-col space-y-4 p-4 text-sm uppercase">
+                    <li><a href="#home" class="block hover:text-pink-500 transition">Home</a></li>
+                    <li><a href="#music" class="block hover:text-pink-500 transition">Music</a></li>
+                    <li><a href="#shows" class="block hover:text-pink-500 transition">Shows</a></li>
+                    <li><a href="#about" class="block hover:text-pink-500 transition">About</a></li>
+                    <li><a href="#merch" class="block hover:text-pink-500 transition">Merch</a></li>
+                    <li><a href="#guestbook" class="block hover:text-pink-500 transition">Guestbook</a></li>
+                    <li><a href="#contact" class="block hover:text-pink-500 transition">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center hero-bg relative overflow-hidden pt-16">
+        <div class="absolute inset-0 opacity-30">
+            <div class="absolute top-0 left-0 w-96 h-96 bg-pink-500 rounded-full filter blur-3xl animate-pulse"></div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-cyan-500 rounded-full filter blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <h1 class="font-bebas text-6xl md:text-8xl lg:text-9xl mb-4 gradient-text">
+                GIANTS OF ALL SIZES
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 text-gray-300">
+                Genre-bending 4-piece from Philadelphia
+            </p>
+            <img src="littleShits.png" alt="Giants of All Sizes" class="mx-auto max-w-md w-full glow opacity-90">
+            
+            <div class="mt-12 flex flex-wrap justify-center gap-4">
+                <a href="#music" class="retro-border px-6 py-3 bg-black hover:bg-pink-900/20 transition">
+                    <i class="fas fa-play mr-2"></i> Listen Now
+                </a>
+                <a href="#shows" class="retro-border px-6 py-3 bg-black hover:bg-cyan-900/20 transition">
+                    <i class="fas fa-calendar mr-2"></i> Upcoming Shows
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Music Section -->
+    <section id="music" class="py-20 bg-gray-900/50">
+        <div class="container mx-auto px-4">
+            <h2 class="font-bebas text-5xl md:text-6xl text-center mb-12 gradient-text">
+                Our Music
+            </h2>
+            
+            <!-- Bandcamp Embed -->
+            <div class="max-w-3xl mx-auto mb-12">
+                <iframe style="border: 0; width: 100%; height: 470px;" 
+                    src="https://bandcamp.com/EmbeddedPlayer/album=2202088403/size=large/bgcol=333333/linkcol=e32c14/tracklist=false/transparent=true/" 
+                    seamless>
+                    <a href="https://giantsofallsizes.bandcamp.com/album/giants-of-all-sizes-demos">
+                        Giants of All Sizes Demos by Giants of All Sizes
+                    </a>
+                </iframe>
+            </div>
+            
+            <!-- Spotify Placeholder -->
+            <div class="max-w-3xl mx-auto text-center">
+                <p class="text-lg mb-4">🎵 Coming soon to Spotify and all streaming platforms!</p>
+                <div class="flex justify-center gap-4">
+                    <a href="#" class="text-3xl hover:text-pink-500 transition">
+                        <i class="fab fa-spotify"></i>
+                    </a>
+                    <a href="#" class="text-3xl hover:text-pink-500 transition">
+                        <i class="fab fa-apple"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@giantsofallsizes" class="text-3xl hover:text-pink-500 transition">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="#" class="text-3xl hover:text-pink-500 transition">
+                        <i class="fab fa-soundcloud"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Shows Section -->
+    <section id="shows" class="py-20 bg-black">
+        <div class="container mx-auto px-4">
+            <h2 class="font-bebas text-5xl md:text-6xl text-center mb-12 gradient-text">
+                Upcoming Shows
+            </h2>
+            
+            <div id="shows-container" class="max-w-3xl mx-auto space-y-6">
+                <!-- Shows will be loaded here from shows.json -->
+                <div class="text-center text-gray-400">
+                    <i class="fas fa-spinner fa-spin text-2xl mb-4"></i>
+                    <p>Loading shows...</p>
+                </div>
+            </div>
+            
+            <p class="text-center text-gray-400 mt-8">
+                <a href="mailto:giantsofallsizes@gmail.com" class="hover:text-pink-500 transition">
+                    <i class="fas fa-envelope mr-2"></i> Contact us for booking
+                </a>
+            </p>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-900/50">
+        <div class="container mx-auto px-4">
+            <h2 class="font-bebas text-5xl md:text-6xl text-center mb-12 gradient-text">
+                About the Band
+            </h2>
+            
+            <div class="max-w-4xl mx-auto mb-12">
+                <p class="text-lg text-center mb-8">
+                    Giants of All Sizes are a 4-piece genre-bending band from the Philadelphia area. 
+                    We play all kinds of music from funk to metal. If you can't find one song you like 
+                    then you probably hate music. Currently, we are harvesting the best musical fruits 
+                    from Montgomery County, and preparing to deliver them directly to your streaming 
+                    service of choice.
+                </p>
+                
+                <img src="band1.jpg" alt="Giants of All Sizes Band" class="w-full rounded-lg shadow-2xl">
+            </div>
+            
+            <!-- Band Members Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                <!-- Tommy -->
+                <div class="retro-border p-6 bg-black/50">
+                    <img src="tommy.jpg" alt="Tommy Crotty" class="w-full h-auto rounded mb-4">
+                    <h3 class="font-bebas text-2xl text-pink-500 mb-2">Tommy Crotty</h3>
+                    <p class="text-sm mb-4">
+                        Hi, I'm Tommy! I mostly play drums but I can also play mallet percussion, 
+                        and I like to pretend I know how to play guitar sometimes.
+                    </p>
+                    <p class="text-xs text-gray-400">
+                        Influences: After Midnight – Blink-182, Holiday – Green Day, Zombie – The Cranberries
+                    </p>
+                </div>
+                
+                <!-- Jakob -->
+                <div class="retro-border p-6 bg-black/50">
+                    <img src="jakob.jpeg" alt="Jakob Stein" class="w-full h-auto rounded mb-4">
+                    <h3 class="font-bebas text-2xl text-cyan-500 mb-2">Jakob Stein</h3>
+                    <p class="text-sm mb-4">
+                        My name is Jakob Stein. I am a multi instrumentalist with a focus on guitar. 
+                        I like to make weird music.
+                    </p>
+                    <p class="text-xs text-gray-400">
+                        Influences: The Wheel -IDLES, Flimsier- King Krule, Little Dipper- Hum
+                    </p>
+                </div>
+                
+                <!-- Dylan -->
+                <div class="retro-border p-6 bg-black/50">
+                    <img src="dylan.jpeg" alt="Dylan Renner" class="w-full h-auto rounded mb-4">
+                    <h3 class="font-bebas text-2xl text-pink-500 mb-2">Dylan Renner</h3>
+                    <p class="text-sm mb-4">
+                        I'm a multi instrumentalist with a focus on bass and guitar. I write songs 
+                        sometimes and I enjoy alternate tunings and weird time signatures.
+                    </p>
+                    <p class="text-xs text-gray-400">
+                        Influences: All for You - Chestnut Grove, Endless nameless - nirvana, 
+                        At the turf fields - Giraffes?Giraffes!
+                    </p>
+                </div>
+                
+                <!-- Calvin -->
+                <div class="retro-border p-6 bg-black/50">
+                    <img src="calvin.jpeg" alt="Calvin Cooper" class="w-full h-auto rounded mb-4">
+                    <h3 class="font-bebas text-2xl text-cyan-500 mb-2">Calvin Cooper</h3>
+                    <p class="text-sm mb-4">
+                        Hi, my name is Calvin, and I am a multi instrumentalist and vocalist, 
+                        motivated by my love of God and epic beats.
+                    </p>
+                    <p class="text-xs text-gray-400">
+                        Influences: Disenchanted – MCR, Down in the Valley – The Head and the Heart, 
+                        Bossa Nova Corps – Origami Angel
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Merch Section -->
+    <section id="merch" class="py-20 bg-black">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="font-bebas text-5xl md:text-6xl mb-12 gradient-text">
+                Band Merch
+            </h2>
+            
+            <p class="text-lg mb-8">Get your Giants of All Sizes gear!</p>
+            
+            <a href="https://my-store-f0f54e.creator-spring.com/" target="_blank" 
+               class="inline-block retro-border px-8 py-4 bg-black hover:bg-pink-900/20 transition text-lg">
+                <i class="fas fa-shopping-cart mr-2"></i> Visit Our Store
+            </a>
+        </div>
+    </section>
+    
+    <!-- Guestbook Section -->
+    <section id="guestbook" class="py-20 bg-gray-900/50">
+        <div class="container mx-auto px-4">
+            <h2 class="font-bebas text-5xl md:text-6xl text-center mb-12 gradient-text">
+                Old School Guestbook
+            </h2>
+            
+            <div class="max-w-2xl mx-auto">
+                <div class="retro-border p-6 bg-black mb-8">
+                    <h3 class="text-xl mb-4 text-pink-500">Sign our guestbook!</h3>
+                    <form id="guestbook-form" class="space-y-4">
+                        <input type="text" id="gb-name" placeholder="Your Name" required
+                               class="w-full p-3 bg-gray-900 border border-gray-700 rounded focus:border-pink-500 outline-none">
+                        <textarea id="gb-message" placeholder="Leave a message for the band!" required
+                                  rows="3" class="w-full p-3 bg-gray-900 border border-gray-700 rounded focus:border-pink-500 outline-none"></textarea>
+                        <button type="submit" class="px-6 py-3 bg-pink-500 hover:bg-pink-600 text-black font-bold transition">
+                            Sign Guestbook
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Guestbook Entries -->
+                <div id="guestbook-entries" class="space-y-4">
+                    <!-- Entries will be loaded here -->
+                </div>
+                
+                <p class="text-center text-sm text-gray-400 mt-8">
+                    <i class="fas fa-info-circle mr-1"></i> Messages are stored locally in your browser
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Newsletter Section -->
+    <section id="newsletter" class="py-20 bg-black">
+        <div class="container mx-auto px-4">
+            <div class="max-w-2xl mx-auto text-center">
+                <h2 class="font-bebas text-5xl md:text-6xl mb-8 gradient-text">
+                    Stay Connected
+                </h2>
+                
+                <p class="text-lg mb-8">
+                    Join our mailing list to get updates about new music, shows, and exclusive content!
+                </p>
+                
+                <!-- Buttondown Email Signup Form -->
+                <form action="https://buttondown.com/api/emails/embed-subscribe/giantsofallsizes" 
+                      method="post" 
+                      target="_blank"
+                      id="newsletter-form"
+                      class="flex flex-col md:flex-row gap-4 justify-center">
+                    <input type="email" 
+                           name="email" 
+                           placeholder="your@email.com" 
+                           required
+                           class="px-6 py-3 bg-gray-900 border border-gray-700 rounded focus:border-pink-500 outline-none md:w-96">
+                    <input type="hidden" name="tag" value="website-signup">
+                    <button type="submit" class="px-8 py-3 bg-pink-500 hover:bg-pink-600 text-black font-bold transition">
+                        Subscribe
+                    </button>
+                </form>
+                <p class="text-sm text-gray-400 mt-4">No spam ever</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-900/50">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="font-bebas text-5xl md:text-6xl mb-12 gradient-text">
+                Contact Us
+            </h2>
+            
+            <p class="text-lg mb-8">For bookings, press inquiries, or just to say hi!</p>
+            
+            <a href="mailto:giantsofallsizes@gmail.com" class="text-xl hover:text-pink-500 transition">
+                <i class="fas fa-envelope mr-2"></i> giantsofallsizes@gmail.com
+            </a>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-black border-t border-pink-500/30 py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="text-sm text-gray-400 mb-4 md:mb-0">
+                    © 2025 Giants of All Sizes. All rights reserved.
+                </p>
+                
+                <div class="flex space-x-6">
+                    <a href="https://giantsofallsizes.bandcamp.com/" target="_blank" 
+                       class="text-2xl hover:text-pink-500 transition">
+                        <i class="fab fa-bandcamp"></i>
+                    </a>
+                    <a href="#" class="text-2xl hover:text-pink-500 transition">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-2xl hover:text-pink-500 transition">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="#" class="text-2xl hover:text-pink-500 transition">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-2xl hover:text-pink-500 transition">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>

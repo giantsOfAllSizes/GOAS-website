@@ -1,0 +1,161 @@
+{
+  "quiz": {
+    "title": "Which Giants Band Member Are You?",
+    "questions": [
+      {
+        "id": 1,
+        "question": "What's your ideal way to spend a Saturday?",
+        "answers": [
+          {
+            "text": "Jamming with friends and maybe breaking something",
+            "points": {"tommy": 3, "jakob": 1, "dylan": 1, "calvin": 0}
+          },
+          {
+            "text": "Experimenting with weird sounds in my room",
+            "points": {"tommy": 0, "jakob": 3, "dylan": 2, "calvin": 1}
+          },
+          {
+            "text": "Writing songs with alternate tunings",
+            "points": {"tommy": 0, "jakob": 1, "dylan": 3, "calvin": 1}
+          },
+          {
+            "text": "Singing at the top of my lungs",
+            "points": {"tommy": 0, "jakob": 0, "dylan": 0, "calvin": 3}
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "question": "Pick a musical influence:",
+        "answers": [
+          {
+            "text": "Blink-182 / Green Day",
+            "points": {"tommy": 3, "jakob": 0, "dylan": 0, "calvin": 1}
+          },
+          {
+            "text": "King Krule / IDLES",
+            "points": {"tommy": 0, "jakob": 3, "dylan": 1, "calvin": 0}
+          },
+          {
+            "text": "Nirvana / Math Rock",
+            "points": {"tommy": 0, "jakob": 1, "dylan": 3, "calvin": 0}
+          },
+          {
+            "text": "MCR / Origami Angel",
+            "points": {"tommy": 1, "jakob": 0, "dylan": 0, "calvin": 3}
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "question": "What's your role in the band?",
+        "answers": [
+          {
+            "text": "Keep the beat and the energy high",
+            "points": {"tommy": 3, "jakob": 0, "dylan": 1, "calvin": 0}
+          },
+          {
+            "text": "Create the atmosphere with layers",
+            "points": {"tommy": 0, "jakob": 3, "dylan": 1, "calvin": 1}
+          },
+          {
+            "text": "Hold down the groove",
+            "points": {"tommy": 1, "jakob": 0, "dylan": 3, "calvin": 0}
+          },
+          {
+            "text": "Connect with the audience",
+            "points": {"tommy": 0, "jakob": 0, "dylan": 0, "calvin": 3}
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "question": "Your ideal show venue?",
+        "answers": [
+          {
+            "text": "Big stage where I can go wild",
+            "points": {"tommy": 3, "jakob": 1, "dylan": 1, "calvin": 2}
+          },
+          {
+            "text": "Underground venue with perfect acoustics",
+            "points": {"tommy": 1, "jakob": 3, "dylan": 2, "calvin": 1}
+          },
+          {
+            "text": "Anywhere with a good sound system",
+            "points": {"tommy": 1, "jakob": 2, "dylan": 3, "calvin": 1}
+          },
+          {
+            "text": "Intimate space where I can see everyone",
+            "points": {"tommy": 0, "jakob": 1, "dylan": 1, "calvin": 3}
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "question": "What keeps you going?",
+        "answers": [
+          {
+            "text": "My cat and my bandmates",
+            "points": {"tommy": 3, "jakob": 1, "dylan": 0, "calvin": 0}
+          },
+          {
+            "text": "The need to make weird music",
+            "points": {"tommy": 0, "jakob": 3, "dylan": 2, "calvin": 0}
+          },
+          {
+            "text": "Finding the perfect sound",
+            "points": {"tommy": 0, "jakob": 1, "dylan": 3, "calvin": 1}
+          },
+          {
+            "text": "Love of God and epic beats",
+            "points": {"tommy": 0, "jakob": 0, "dylan": 0, "calvin": 3}
+          }
+        ]
+      }
+    ],
+    "results": {
+      "tommy": {
+        "name": "Tommy Crotty",
+        "description": "You're the heartbeat of the band! Like Tommy, you bring unstoppable energy and keep everyone moving. You're loyal to your friends (and cats) and aren't afraid to try new things. Rock on!",
+        "image": "tommy.jpg"
+      },
+      "jakob": {
+        "name": "Jakob Stein",
+        "description": "You're the sonic architect! Like Jakob, you love experimenting and pushing boundaries. You see music as an art form to be explored, and you're not afraid to get weird with it.",
+        "image": "jakob.jpeg"
+      },
+      "dylan": {
+        "name": "Dylan Renner",
+        "description": "You're the groove master! Like Dylan, you appreciate the technical side of music while keeping things interesting. Alternate tunings and odd time signatures? Yes please!",
+        "image": "dylan.jpeg"
+      },
+      "calvin": {
+        "name": "Calvin Cooper",
+        "description": "You're the soul of the band! Like Calvin, you connect with people through music and bring passion to everything you do. Your energy is infectious and inspiring!",
+        "image": "calvin.jpeg"
+      }
+    }
+  },
+  "countdown": {
+    "events": [
+      {
+        "id": 1,
+        "title": "Next Show",
+        "date": "2025-02-14T20:00:00",
+        "description": "Valentine's Day Show at The Fillmore"
+      },
+      {
+        "id": 2,
+        "title": "Album Release",
+        "date": "2025-06-01T00:00:00",
+        "description": "Our debut album drops!"
+      },
+      {
+        "id": 3,
+        "title": "Summer Tour",
+        "date": "2025-07-01T00:00:00",
+        "description": "East Coast tour kicks off"
+      }
+    ]
+  }
+}
