@@ -1,4 +1,108 @@
-@ -111,8 +111,13 @@
+@ -1,69 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giants of All Sizes - Philadelphia Indie Band</title>
+    <meta name="description" content="Giants of All Sizes - A 4-piece genre-bending band from Philadelphia playing everything from funk to metal">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom styles -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&display=swap');
+        
+        .font-bebas {
+            font-family: 'Bebas Neue', sans-serif;
+        }
+        
+        .font-mono-custom {
+            font-family: 'Space Mono', monospace;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(45deg, #ff0080, #ff8c00, #40e0d0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+        }
+        
+        .glow {
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glow {
+            from { filter: drop-shadow(0 0 10px rgba(255, 0, 128, 0.5)); }
+            to { filter: drop-shadow(0 0 20px rgba(64, 224, 208, 0.8)); }
+        }
+        
+        .retro-border {
+            border: 3px solid transparent;
+            background: linear-gradient(#000, #000) padding-box,
+                        linear-gradient(45deg, #ff0080, #40e0d0) border-box;
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, #ff0080, #40e0d0);
+            border-radius: 5px;
+        }
+        
+        /* Map styles */
+        .leaflet-container {
+            background: #1a1a1a;
+            font-family: 'Space Mono', monospace;
+        }
+        
+        .leaflet-popup-content-wrapper {
+            background: #000;
+            color: #fff;
+            border: 2px solid #ff0080;
+            border-radius: 8px;
+        }
+        
+        .leaflet-popup-tip {
+            background: #000;
+            border-top: 2px solid #ff0080;
+        }
+        
+        .custom-marker {
+            background: linear-gradient(45deg, #ff0080, #40e0d0);
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 2px 10px rgba(255, 0, 128, 0.5);
+        }
+    </style>
+    
+    <!-- Leaflet CSS for maps -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+</head>
+<body class="bg-black text-white font-mono-custom">
+    
+@ -77,8 +111,14 @@
                 <ul class="hidden md:flex space-x-8 text-sm uppercase">
                     <li><a href="#home" class="hover:text-pink-500 transition">Home</a></li>
                     <li><a href="#music" class="hover:text-pink-500 transition">Music</a></li>
@@ -12,7 +116,8 @@
                     <li><a href="#social-feed" class="hover:text-pink-500 transition">Social</a></li>
                     <li><a href="#merch" class="hover:text-pink-500 transition">Merch</a></li>
                     <li><a href="#guestbook" class="hover:text-pink-500 transition">Guestbook</a></li>
-@ -130,8 +135,13 @@
+                    <li><a href="#contact" class="hover:text-pink-500 transition">Contact</a></li>
+@ -95,8 +135,14 @@
                 <ul class="flex flex-col space-y-4 p-4 text-sm uppercase">
                     <li><a href="#home" class="block hover:text-pink-500 transition">Home</a></li>
                     <li><a href="#music" class="block hover:text-pink-500 transition">Music</a></li>
@@ -26,8 +131,8 @@
                     <li><a href="#social-feed" class="block hover:text-pink-500 transition">Social</a></li>
                     <li><a href="#merch" class="block hover:text-pink-500 transition">Merch</a></li>
                     <li><a href="#guestbook" class="block hover:text-pink-500 transition">Guestbook</a></li>
-@ -206,6 +216,67 @@
-            </div>
+                    <li><a href="#contact" class="block hover:text-pink-500 transition">Contact</a></li>
+@ -171,18 +217,117 @@
         </div>
     </section>
     
@@ -92,9 +197,66 @@
     </section>
     
     <!-- Shows Section -->
+    <section id="shows" class="py-20 bg-black">
     <section id="shows" class="py-20 bg-gray-900/50">
         <div class="container mx-auto px-4">
-@ -268,6 +339,76 @@
+            <h2 class="font-bebas text-5xl md:text-6xl text-center mb-12 gradient-text">
+                Upcoming Shows
+            </h2>
+            
+            <div id="shows-container" class="max-w-3xl mx-auto space-y-6">
+                <!-- Shows will be loaded here from shows.json -->
+                <div class="text-center text-gray-400">
+                    <i class="fas fa-spinner fa-spin text-2xl mb-4"></i>
+                    <p>Loading shows...</p>
+            <!-- View Toggle -->
+            <div class="flex justify-center gap-4 mb-8">
+                <button onclick="toggleShowsView('list')" id="list-view-btn" class="shows-view-btn active px-4 py-2 bg-pink-500 text-black font-bold rounded transition">
+                    <i class="fas fa-list mr-2"></i> List View
+                </button>
+                <button onclick="toggleShowsView('map')" id="map-view-btn" class="shows-view-btn px-4 py-2 bg-gray-700 hover:bg-cyan-500 hover:text-black font-bold rounded transition">
+                    <i class="fas fa-map-marked-alt mr-2"></i> Map View
+                </button>
+                <button onclick="exportShowsCalendar()" class="px-4 py-2 bg-gray-700 hover:bg-orange-500 hover:text-black font-bold rounded transition">
+                    <i class="fas fa-calendar-plus mr-2"></i> Add to Calendar
+                </button>
+            </div>
+            
+            <!-- List View -->
+            <div id="shows-list-view" class="shows-view">
+                <div id="shows-container" class="max-w-3xl mx-auto space-y-6">
+                    <!-- Shows will be loaded here from shows.json -->
+                    <div class="text-center text-gray-400">
+                        <i class="fas fa-spinner fa-spin text-2xl mb-4"></i>
+                        <p>Loading shows...</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Map View -->
+            <div id="shows-map-view" class="shows-view hidden">
+                <div class="max-w-6xl mx-auto">
+                    <div id="shows-map" class="w-full h-96 bg-gray-800 rounded-lg relative overflow-hidden">
+                        <!-- Map will be rendered here -->
+                        <div class="absolute inset-0 flex items-center justify-center text-gray-400">
+                            <div class="text-center">
+                                <i class="fas fa-map-marked-alt text-4xl mb-2"></i>
+                                <p>Interactive map loading...</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Show Details Panel -->
+                    <div id="map-show-details" class="mt-6 retro-border p-6 bg-black/50 hidden">
+                        <h3 class="font-bebas text-2xl text-pink-500 mb-2" id="map-show-venue"></h3>
+                        <p class="text-lg mb-1" id="map-show-date"></p>
+                        <p class="text-gray-400 mb-4" id="map-show-location"></p>
+                        <div id="map-show-actions"></div>
+                    </div>
+                </div>
+            </div>
+            
+@ -194,6 +339,76 @@
         </div>
     </section>
     
@@ -171,11 +333,10 @@
     <!-- About Section -->
     <section id="about" class="py-20 bg-gray-900/50">
         <div class="container mx-auto px-4">
-@ -346,7 +487,105 @@
+@ -272,6 +487,158 @@
         </div>
     </section>
     
-  
     <!-- Lyrics Section -->
     <section id="lyrics" class="py-20 bg-black">
         <div class="container mx-auto px-4">
@@ -278,11 +439,193 @@
                 <!-- Bio Section -->
                 <div class="mb-12">
                     <h3 class="font-bebas text-2xl text-pink-500 mb-4">Biography</h3>
-@ -546,7 +785,72 @@
+                    <div class="retro-border p-6 bg-black/50">
+                        <p id="epk-bio-short" class="text-lg mb-4"></p>
+                        <div id="epk-bio-long" class="hidden space-y-4"></div>
+                        <button id="toggle-bio" class="text-pink-500 hover:text-pink-400 transition mt-4">
+                            Read more <i class="fas fa-chevron-down ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Technical Requirements -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+                    <div>
+                        <h3 class="font-bebas text-2xl text-cyan-500 mb-4">Stage Requirements</h3>
+                        <div class="retro-border p-6 bg-black/50">
+                            <ul id="epk-stage-requirements" class="space-y-2 text-gray-300">
+                                <!-- Requirements will be loaded here -->
+                            </ul>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="font-bebas text-2xl text-pink-500 mb-4">Technical Info</h3>
+                        <div class="retro-border p-6 bg-black/50">
+                            <dl id="epk-tech-info" class="space-y-2">
+                                <!-- Tech info will be loaded here -->
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Downloads Section -->
+                <div class="mb-12">
+                    <h3 class="font-bebas text-2xl text-cyan-500 mb-4">Downloads</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4" id="epk-downloads">
+                        <!-- Downloads will be loaded here -->
+                    </div>
+                </div>
+                
+                <!-- Achievements -->
+                <div>
+                    <h3 class="font-bebas text-2xl text-pink-500 mb-4">Achievements</h3>
+                    <div class="retro-border p-6 bg-black/50">
+                        <ul id="epk-achievements" class="space-y-2">
+                            <!-- Achievements will be loaded here -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
     
-
+    <!-- Merch Section -->
+    <section id="merch" class="py-20 bg-black">
+        <div class="container mx-auto px-4 text-center">
+@ -288,41 +655,399 @@
+        </div>
+    </section>
+    
+    <!-- Social Media Feed Section -->
+    <section id="social-feed" class="py-20 bg-gray-900/50">
+        <div class="container mx-auto px-4">
+            <h2 class="font-bebas text-5xl md:text-6xl text-center mb-12 gradient-text">
+                Social Media
+            </h2>
+            
+            <div class="max-w-6xl mx-auto">
+                <!-- Platform Tabs -->
+                <div class="flex flex-wrap justify-center gap-2 mb-8">
+                    <button onclick="showSocialPlatform('instagram')" class="social-tab active px-6 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold rounded transition">
+                        <i class="fab fa-instagram mr-2"></i> Instagram
+                    </button>
+                    <button onclick="showSocialPlatform('twitter')" class="social-tab px-6 py-2 bg-gray-700 hover:bg-blue-500 text-white font-bold rounded transition">
+                        <i class="fab fa-twitter mr-2"></i> Twitter
+                    </button>
+                    <button onclick="showSocialPlatform('youtube')" class="social-tab px-6 py-2 bg-gray-700 hover:bg-red-600 text-white font-bold rounded transition">
+                        <i class="fab fa-youtube mr-2"></i> YouTube
+                    </button>
+                    <button onclick="showSocialPlatform('tiktok')" class="social-tab px-6 py-2 bg-gray-700 hover:bg-black text-white font-bold rounded transition">
+                        <i class="fab fa-tiktok mr-2"></i> TikTok
+                    </button>
+                </div>
+                
+                <!-- Instagram Feed -->
+                <div id="instagram-feed" class="social-platform">
+                    <!-- Instagram Embed - Replace with your actual Instagram embed code -->
+                    <div class="max-w-4xl mx-auto">
+                        <p class="text-center text-gray-400 mb-4">
+                            <i class="fas fa-info-circle mr-2"></i>
+                            To embed Instagram feed: Use a service like Behold.so, SnapWidget, or Instagram's official embed
+                        </p>
+                        <!-- Example: Behold.so embed -->
+                        <!-- <div data-behold-id="YOUR_BEHOLD_ID"></div>
+                        <script src="https://w.behold.so/widget.js" type="module"></script> -->
+                        
+                        <!-- For now, showing latest posts link -->
+                        <div class="text-center">
+                            <a href="https://instagram.com/giantsofallsizes" target="_blank" 
+                               class="inline-block px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold rounded hover:opacity-90 transition">
+                                <i class="fab fa-instagram mr-2"></i> View on Instagram
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Twitter/X Feed -->
+                <div id="twitter-feed" class="social-platform hidden">
+                    <div class="max-w-2xl mx-auto">
+                        <!-- Twitter Timeline Embed -->
+                        <a class="twitter-timeline" data-height="600" data-theme="dark" 
+                           href="https://twitter.com/GOASband?ref_src=twsrc%5Etfw">
+                           Tweets by GOASband
+                        </a>
+                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    </div>
+                </div>
+                
+                <!-- YouTube Feed -->
+                <div id="youtube-feed" class="social-platform hidden">
+                    <div class="max-w-4xl mx-auto">
+                        <!-- YouTube Channel Embed -->
+                        <script src="https://apis.google.com/js/platform.js"></script>
+                        <div class="g-ytsubscribe" data-channelid="UC_YOUR_CHANNEL_ID" data-layout="full" data-count="default"></div>
+                        
+                        <!-- Latest Videos -->
+                        <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <iframe width="100%" height="315" 
+                                    src="https://www.youtube.com/embed/?listType=user_uploads&list=giantsofallsizes" 
+                                    frameborder="0" allowfullscreen>
+                            </iframe>
+                        </div>
+                        
+                        <div class="text-center mt-6">
+                            <a href="https://www.youtube.com/@giantsofallsizes" target="_blank" 
+                               class="inline-block px-6 py-3 bg-red-600 text-white font-bold rounded hover:bg-red-700 transition">
+                                <i class="fab fa-youtube mr-2"></i> Visit our Channel
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- TikTok Feed -->
+                <div id="tiktok-feed" class="social-platform hidden">
+                    <div class="max-w-4xl mx-auto text-center">
+                        <!-- TikTok doesn't provide official embeds for profiles -->
+                        <p class="text-gray-400 mb-6">
+                            <i class="fas fa-info-circle mr-2"></i>
+                            Check out our latest TikToks on the app!
+                        </p>
+                        <a href="https://tiktok.com/@giantsofallsizes" target="_blank" 
+                           class="inline-block px-6 py-3 bg-black text-white font-bold rounded hover:bg-gray-900 transition">
+                            <i class="fab fa-tiktok mr-2"></i> Follow on TikTok
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Follow CTA -->
+                <div class="mt-12 text-center">
+                    <h3 class="font-bebas text-2xl text-pink-500 mb-4">Follow Us Everywhere!</h3>
+                    <div class="flex justify-center gap-4">
+                        <a href="https://instagram.com/giantsofallsizes" target="_blank" 
+                           class="text-3xl hover:text-pink-500 transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://twitter.com/GOASband" target="_blank" 
+                           class="text-3xl hover:text-blue-400 transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@giantsofallsizes" target="_blank" 
+                           class="text-3xl hover:text-red-600 transition">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="https://tiktok.com/@giantsofallsizes" target="_blank" 
+                           class="text-3xl hover:text-black transition">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                        <a href="https://facebook.com/giantsofallsizes" target="_blank" 
+                           class="text-3xl hover:text-blue-600 transition">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                    </div>
+                    <p class="text-sm text-gray-400 mt-4">
+                        <i class="fas fa-sync-alt mr-1"></i> Feed updates every 24 hours
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
     <!-- Fan Content Section -->
     <section id="fan-content" class="py-20 bg-black">
         <div class="container mx-auto px-4">
@@ -350,13 +693,131 @@
     </section>
     
     <!-- Guestbook Section -->
+    <section id="guestbook" class="py-20 bg-gray-900/50">
     <section id="guestbook" class="py-20 bg-black">
         <div class="container mx-auto px-4">
-@ -654,7 +958,94 @@
+            <h2 class="font-bebas text-5xl md:text-6xl text-center mb-12 gradient-text">
+                Old School Guestbook
+            </h2>
+            
+            <div class="max-w-2xl mx-auto">
+                <div class="retro-border p-6 bg-black mb-8">
+                    <h3 class="text-xl mb-4 text-pink-500">Sign our guestbook!</h3>
+                    <form id="guestbook-form" class="space-y-4">
+                        <input type="text" id="gb-name" placeholder="Your Name" required
+                               class="w-full p-3 bg-gray-900 border border-gray-700 rounded focus:border-pink-500 outline-none">
+                        <textarea id="gb-message" placeholder="Leave a message for the band!" required
+                                  rows="3" class="w-full p-3 bg-gray-900 border border-gray-700 rounded focus:border-pink-500 outline-none"></textarea>
+                        <button type="submit" class="px-6 py-3 bg-pink-500 hover:bg-pink-600 text-black font-bold transition">
+                            Sign Guestbook
+                        </button>
+                    </form>
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-8">
+                    <p class="text-lg text-gray-300 mb-4">
+                        <i class="fas fa-book mr-2"></i> Sign our digital guestbook and leave a message for the band!
+                    </p>
+                    <p class="text-sm text-gray-500">
+                        Leave your mark - just like the old web days!
+                    </p>
+                </div>
+                
+                <!-- Guestbook Entries -->
+                <div id="guestbook-entries" class="space-y-4">
+                    <!-- Entries will be loaded here -->
+                <!-- Choose your guestbook option: -->
+                
+                <!-- OPTION 1: HTML Comment Box (Easiest, no GitHub required) -->
+                <div class="retro-border p-6 bg-gray-900/50">
+                    <!-- begin wwww.htmlcommentbox.com -->
+                    <div id="HCB_comment_box" style="background-color:transparent;">
+                        <a href="http://www.htmlcommentbox.com">Widget</a> is loading comments...
+                    </div>
+                    <link rel="stylesheet" type="text/css" href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
+                    <script type="text/javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={};} (function(){var s=document.createElement("script"), l=hcb_user.PAGE || (""+window.location).replace(/'/g,"%27"), h="https://www.htmlcommentbox.com";s.setAttribute("type","text/javascript");s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&mod=%241%24wq1rdBcg%24w8ot5dR4k8Gx2E7FUpSLk1"+"&opts=16798&num=10&ts=1705341973301");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
+                    <style>
+                        #HCB_comment_box { background: transparent !important; }
+                        #HCB_comment_box .hcb-wrapper { background: rgba(0,0,0,0.5) !important; border: 2px solid #ff0080 !important; }
+                        #HCB_comment_box .hcb-wrapper-half { background: #1a1a1a !important; }
+                        #HCB_comment_box textarea, #HCB_comment_box input { background: #2d2d2d !important; color: white !important; border-color: #ff0080 !important; }
+                        #HCB_comment_box .hcb-comment-tb { color: white !important; }
+                        #HCB_comment_box .hcb-link { color: #40e0d0 !important; }
+                        #HCB_comment_box .hcb-comment-body { color: #e0e0e0 !important; }
+                        #HCB_comment_box .home-desc { color: #999 !important; }
+                        #HCB_comment_box .submit { background: #ff0080 !important; color: black !important; border: none !important; }
+                        #HCB_comment_box .submit:hover { background: #ff4da6 !important; }
+                    </style>
+                    <!-- end www.htmlcommentbox.com -->
+                </div>
+                
+                <p class="text-center text-sm text-gray-400 mt-8">
+                    <i class="fas fa-info-circle mr-1"></i> Messages are stored locally in your browser
+                </p>
+                <!-- OPTION 2: Giscus (GitHub-based, more features but requires setup) -->
+                <!-- Uncomment this section and comment out Option 1 to use Giscus instead -->
+                <!--
+                <div class="retro-border p-6 bg-gray-900/50">
+                    <script src="https://giscus.app/client.js"
+                            data-repo="giantsofallsizes/website-guestbook"
+                            data-repo-id="YOUR_REPO_ID"
+                            data-category="Guestbook"
+                            data-category-id="YOUR_CATEGORY_ID"
+                            data-mapping="pathname"
+                            data-strict="0"
+                            data-reactions-enabled="1"
+                            data-emit-metadata="0"
+                            data-input-position="top"
+                            data-theme="dark_high_contrast"
+                            data-lang="en"
+                            data-loading="lazy"
+                            crossorigin="anonymous"
+                            async>
+                    </script>
+                </div>
+                -->
+                
+                <!-- Alternative Options -->
+                <div class="mt-12 text-center">
+                    <p class="text-sm text-gray-500 mb-4">
+                        Don't have a GitHub account? Send us a message instead:
+                    </p>
+                    <a href="mailto:giantsofallsizes@gmail.com?subject=Guestbook%20Message" 
+                       class="inline-block px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white transition">
+                        <i class="fas fa-envelope mr-2"></i> Email Us
+                    </a>
+                </div>
+                
+                <!-- Instructions for setup (visible only if not configured) -->
+                <div id="guestbook-setup" class="mt-8 p-6 bg-gray-800 rounded-lg text-sm">
+                    <h4 class="font-bold text-pink-500 mb-2">
+                        <i class="fas fa-cog mr-1"></i> Guestbook Options (for site admin):
+                    </h4>
+                    <div class="space-y-4 text-gray-400">
+                        <div>
+                            <h5 class="font-bold text-cyan-500">Option 1: HTML Comment Box (Currently Active)</h5>
+                            <ul class="list-disc list-inside ml-4 space-y-1">
+                                <li>Free tier includes 100 comments/month</li>
+                                <li>No account required for visitors</li>
+                                <li>Simple moderation dashboard</li>
+                                <li>To customize: visit <a href="https://www.htmlcommentbox.com" target="_blank" class="text-pink-500 hover:text-pink-400">htmlcommentbox.com</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-cyan-500">Option 2: Giscus (GitHub-based)</h5>
+                            <ul class="list-disc list-inside ml-4 space-y-1">
+                                <li>Completely free, no limits</li>
+                                <li>Requires GitHub account to comment</li>
+                                <li>More features (reactions, threading, etc.)</li>
+                                <li>Setup: Create repo → Enable Discussions → Configure at <a href="https://giscus.app" target="_blank" class="text-pink-500 hover:text-pink-400">giscus.app</a></li>
+                            </ul>
+                        </div>
+                        <p class="mt-4 text-xs">Remove this setup div when you're happy with your choice!</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
     
-  
     <!-- Interactive Section -->
     <section id="interactive" class="py-20 bg-black">
         <div class="container mx-auto px-4">
@@ -446,5 +907,63 @@
     </section>
     
     <!-- Newsletter Section -->
+    <section id="newsletter" class="py-20 bg-black">
     <section id="newsletter" class="py-20 bg-gray-900/50">
         <div class="container mx-auto px-4">
+            <div class="max-w-2xl mx-auto text-center">
+                <h2 class="font-bebas text-5xl md:text-6xl mb-8 gradient-text">
+@ -399,6 +1124,54 @@
+        </div>
+    </footer>
+    
+    <!-- Music Player Widget -->
+    <div id="music-player" class="fixed bottom-0 left-0 right-0 bg-black/95 backdrop-blur-md border-t border-pink-500/30 transform translate-y-full transition-transform duration-300 z-40">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex items-center justify-between">
+                <!-- Player Controls -->
+                <div class="flex items-center space-x-4">
+                    <button id="play-pause-btn" class="text-2xl hover:text-pink-500 transition">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    <button id="prev-track-btn" class="hover:text-pink-500 transition">
+                        <i class="fas fa-backward"></i>
+                    </button>
+                    <button id="next-track-btn" class="hover:text-pink-500 transition">
+                        <i class="fas fa-forward"></i>
+                    </button>
+                </div>
+                
+                <!-- Track Info -->
+                <div class="flex-1 mx-6 text-center">
+                    <p id="track-title" class="font-bold text-sm md:text-base">No track selected</p>
+                    <p id="track-artist" class="text-xs text-gray-400">Select a track to play</p>
+                </div>
+                
+                <!-- Player Toggle -->
+                <button id="player-toggle" class="hover:text-pink-500 transition">
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+            </div>
+            
+            <!-- Progress Bar -->
+            <div class="mt-2 flex items-center space-x-2">
+                <span id="current-time" class="text-xs text-gray-400">0:00</span>
+                <div class="flex-1 bg-gray-700 rounded-full h-1 cursor-pointer" id="progress-bar">
+                    <div class="bg-pink-500 h-full rounded-full transition-all duration-100" id="progress-fill" style="width: 0%"></div>
+                </div>
+                <span id="duration" class="text-xs text-gray-400">0:00</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Music Player Toggle Button -->
+    <button id="music-player-btn" class="fixed bottom-4 right-4 bg-pink-500 hover:bg-pink-600 text-black rounded-full w-14 h-14 flex items-center justify-center shadow-lg transition z-30">
+        <i class="fas fa-music text-xl"></i>
+    </button>
+    
+    <!-- Leaflet JS for maps -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+    
+    <script src="script.js"></script>
+</body>
+</html>
