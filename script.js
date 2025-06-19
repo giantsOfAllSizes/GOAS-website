@@ -66,77 +66,43 @@ let markers = [];
 
 async function loadShows() {
     const showsContainer = document.getElementById('shows-container');
-    
+    if (!showsContainer) return;
+    showsContainer.innerHTML = '<div class="text-center text-gray-400"><i class="fas fa-spinner fa-spin text-2xl mb-4"></i><p>Loading shows...</p></div>';
     try {
         const response = await fetch('shows.json');
+        if (!response.ok) throw new Error('Could not load shows.json');
         showsData = await response.json();
-        
-        if (showsData.length === 0) {
-            showsContainer.innerHTML = `
-                <div class="text-center text-gray-400">
-                    <p class="text-lg">No upcoming shows at the moment.</p>
-                    <p class="mt-2">Check back soon!</p>
-                </div>
-            `;
+        if (!Array.isArray(showsData) || showsData.length === 0) {
+            showsContainer.innerHTML = '<div class="text-center text-gray-400">No upcoming shows at this time.</div>';
             return;
         }
-        
-        // Sort shows by date
-        showsData.sort((a, b) => new Date(a.date) - new Date(b.date));
-        
-        // Generate HTML for shows
-        const showsHTML = showsData.map((show, index) => {
+        // Render shows list
+        const showsHTML = showsData.map((show, idx) => {
             const date = new Date(show.date);
-            const dateStr = date.toLocaleDateString('en-US', { 
-                weekday: 'short', 
-                month: 'short', 
-                day: 'numeric',
-                year: 'numeric'
-            });
-            
-            return `
-                <div class="retro-border p-6 bg-gray-900/50 hover:bg-gray-900/80 transition cursor-pointer"
-                     onclick="selectShowOnMap(${index})">
-                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
-                        <div>
-                            <h3 class="text-xl font-bold text-pink-500">${dateStr}</h3>
-                            <p class="text-lg">${show.venue}</p>
-                            <p class="text-gray-400">${show.city}, ${show.state}</p>
-                            ${show.address ? `<p class="text-sm text-gray-500">${show.address}</p>` : ''}
-                        </div>
-                        <div class="mt-4 md:mt-0 flex flex-col gap-2">
-                            ${show.soldOut ? 
-                                '<span class="px-4 py-2 bg-gray-600 text-gray-300 font-bold text-center">SOLD OUT</span>' :
-                                show.ticketUrl ? 
-                                    `<a href="${show.ticketUrl}" target="_blank" class="px-4 py-2 bg-pink-500 hover:bg-pink-600 text-black font-bold transition inline-block text-center">Get Tickets</a>` :
-                                    '<span class="px-4 py-2 bg-gray-700 text-gray-300 text-center">Tickets Coming Soon</span>'
-                            }
-                            ${show.coordinates ? 
-                                `<button onclick="event.stopPropagation(); openInMaps(${show.coordinates.lat}, ${show.coordinates.lng}, '${show.venue}')" 
-                                         class="px-4 py-2 bg-gray-700 hover:bg-cyan-500 hover:text-black text-white transition text-sm">
-                                    <i class="fas fa-map-marker-alt mr-1"></i> Directions
-                                </button>` : ''
-                            }
-                        </div>
+            const dateStr = date.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
+            return `<div class="retro-border p-6 bg-black/60">
+                <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                    <div>
+                        <h3 class="font-bebas text-2xl text-pink-500 mb-1">${show.venue}</h3>
+                        <p class="text-gray-300 mb-1">${show.address || `${show.city}, ${show.state}`}</p>
+                        <p class="text-sm text-gray-400">${dateStr}</p>
+                    </div>
+                    <div class="flex flex-col md:items-end gap-2">
+                        ${show.soldOut ? `<span class="inline-block px-4 py-2 bg-gray-600 text-gray-300 font-bold rounded">SOLD OUT</span>` :
+                        show.ticketUrl ? `<a href="${show.ticketUrl}" target="_blank" class="inline-block px-4 py-2 bg-pink-500 hover:bg-pink-600 text-black font-bold rounded transition">Get Tickets</a>` :
+                        `<span class="inline-block px-4 py-2 bg-gray-700 text-gray-300 rounded">Tickets Coming Soon</span>`}
+                        ${show.coordinates ? `<button onclick="selectShowOnMap(${idx})" class="inline-block px-4 py-2 bg-cyan-500 hover:bg-cyan-600 text-black font-bold rounded transition mt-1"><i class="fas fa-map-marker-alt mr-1"></i> View on Map</button>` : ''}
                     </div>
                 </div>
-            `;
+            </div>`;
         }).join('');
-        
         showsContainer.innerHTML = showsHTML;
-        
-        // Initialize map if we have shows with coordinates
-        if (showsData.some(show => show.coordinates)) {
+        // If map view is visible, initialize map
+        if (!document.getElementById('shows-map-view').classList.contains('hidden')) {
             initializeMap();
         }
-        
     } catch (error) {
-        console.error('Error loading shows:', error);
-        showsContainer.innerHTML = `
-            <div class="text-center text-gray-400">
-                <p>Error loading shows. Please try again later.</p>
-            </div>
-        `;
+        showsContainer.innerHTML = `<div class="text-center text-red-500">Error loading shows: ${error.message}</div>`;
     }
 }
 
