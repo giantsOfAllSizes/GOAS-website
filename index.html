@@ -1,786 +1,450 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Giants of All Sizes - Philadelphia Indie Band</title>
-    <meta name="description" content="Giants of All Sizes - A 4-piece genre-bending band from Philadelphia playing everything from funk to metal">
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Custom styles -->
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&display=swap');
-        
-        .font-bebas {
-            font-family: 'Bebas Neue', sans-serif;
-        }
-        
-        .font-mono-custom {
-            font-family: 'Space Mono', monospace;
-        }
-        
-        .gradient-text {
-            background: linear-gradient(45deg, #ff0080, #ff8c00, #40e0d0);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .hero-bg {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-        }
-        
-        .glow {
-            animation: glow 2s ease-in-out infinite alternate;
-        }
-        
-        @keyframes glow {
-            from { filter: drop-shadow(0 0 10px rgba(255, 0, 128, 0.5)); }
-            to { filter: drop-shadow(0 0 20px rgba(64, 224, 208, 0.8)); }
-        }
-        
-        .retro-border {
-            border: 3px solid transparent;
-            background: linear-gradient(#000, #000) padding-box,
-                        linear-gradient(45deg, #ff0080, #40e0d0) border-box;
-        }
-        
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-        
-        ::-webkit-scrollbar-track {
-            background: #1a1a1a;
-        }
-        
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(45deg, #ff0080, #40e0d0);
-            border-radius: 5px;
-        }
-        
-        /* Map styles */
-        .leaflet-container {
-            background: #1a1a1a;
-            font-family: 'Space Mono', monospace;
-        }
-        
-        .leaflet-popup-content-wrapper {
-            background: #000;
-            color: #fff;
-            border: 2px solid #ff0080;
-            border-radius: 8px;
-        }
-        
-        .leaflet-popup-tip {
-            background: #000;
-            border-top: 2px solid #ff0080;
-        }
-        
-        .custom-marker {
-            background: linear-gradient(45deg, #ff0080, #40e0d0);
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            box-shadow: 0 2px 10px rgba(255, 0, 128, 0.5);
-        }
-    </style>
-    
-    <!-- Leaflet CSS for maps -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
-</head>
-<body class="bg-black text-white font-mono-custom">
-    
-    <!-- Header Navigation -->
-    <header class="fixed top-0 w-full bg-black/90 backdrop-blur-md z-50 border-b border-pink-500/30">
-        <nav class="container mx-auto px-4 py-4">
-            <div class="flex justify-between items-center">
-                <a href="#" class="font-bebas text-2xl gradient-text">GOAS</a>
-                
-                <!-- Desktop Menu -->
+@ -111,8 +111,13 @@
                 <ul class="hidden md:flex space-x-8 text-sm uppercase">
                     <li><a href="#home" class="hover:text-pink-500 transition">Home</a></li>
                     <li><a href="#music" class="hover:text-pink-500 transition">Music</a></li>
+                    <li><a href="#blog" class="hover:text-pink-500 transition">News</a></li>
                     <li><a href="#shows" class="hover:text-pink-500 transition">Shows</a></li>
+                    <li><a href="#setlists" class="hover:text-pink-500 transition">Setlists</a></li>
                     <li><a href="#about" class="hover:text-pink-500 transition">About</a></li>
+                    <li><a href="#lyrics" class="hover:text-pink-500 transition">Lyrics</a></li>
+                    <li><a href="#photos" class="hover:text-pink-500 transition">Photos</a></li>
+                    <li><a href="#epk" class="hover:text-pink-500 transition">Press</a></li>
                     <li><a href="#social-feed" class="hover:text-pink-500 transition">Social</a></li>
                     <li><a href="#merch" class="hover:text-pink-500 transition">Merch</a></li>
                     <li><a href="#guestbook" class="hover:text-pink-500 transition">Guestbook</a></li>
-                    <li><a href="#contact" class="hover:text-pink-500 transition">Contact</a></li>
-                </ul>
-                
-                <!-- Mobile Menu Button -->
-                <button id="mobile-menu-btn" class="md:hidden">
-                    <i class="fas fa-bars text-2xl"></i>
-                </button>
-            </div>
-            
-            <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-black/95 backdrop-blur-md">
+@ -130,8 +135,13 @@
                 <ul class="flex flex-col space-y-4 p-4 text-sm uppercase">
                     <li><a href="#home" class="block hover:text-pink-500 transition">Home</a></li>
                     <li><a href="#music" class="block hover:text-pink-500 transition">Music</a></li>
+                    <li><a href="#blog" class="block hover:text-pink-500 transition">News</a></li>
                     <li><a href="#shows" class="block hover:text-pink-500 transition">Shows</a></li>
+                    <li><a href="#setlists" class="block hover:text-pink-500 transition">Setlists</a></li>
                     <li><a href="#about" class="block hover:text-pink-500 transition">About</a></li>
+                    <li><a href="#lyrics" class="block hover:text-pink-500 transition">Lyrics</a></li>
+                    <li><a href="#photos" class="block hover:text-pink-500 transition">Photos</a></li>
+                    <li><a href="#epk" class="block hover:text-pink-500 transition">Press</a></li>
                     <li><a href="#social-feed" class="block hover:text-pink-500 transition">Social</a></li>
                     <li><a href="#merch" class="block hover:text-pink-500 transition">Merch</a></li>
                     <li><a href="#guestbook" class="block hover:text-pink-500 transition">Guestbook</a></li>
-                    <li><a href="#contact" class="block hover:text-pink-500 transition">Contact</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-    
-    <!-- Hero Section -->
-    <section id="home" class="min-h-screen flex items-center justify-center hero-bg relative overflow-hidden pt-16">
-        <div class="absolute inset-0 opacity-30">
-            <div class="absolute top-0 left-0 w-96 h-96 bg-pink-500 rounded-full filter blur-3xl animate-pulse"></div>
-            <div class="absolute bottom-0 right-0 w-96 h-96 bg-cyan-500 rounded-full filter blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
-        </div>
-        
-        <div class="container mx-auto px-4 text-center relative z-10">
-            <h1 class="font-bebas text-6xl md:text-8xl lg:text-9xl mb-4 gradient-text">
-                GIANTS OF ALL SIZES
-            </h1>
-            <p class="text-xl md:text-2xl mb-8 text-gray-300">
-                Genre-bending 4-piece from Philadelphia
-            </p>
-            <img src="littleShits.png" alt="Giants of All Sizes" class="mx-auto max-w-md w-full glow opacity-90">
-            
-            <div class="mt-12 flex flex-wrap justify-center gap-4">
-                <a href="#music" class="retro-border px-6 py-3 bg-black hover:bg-pink-900/20 transition">
-                    <i class="fas fa-play mr-2"></i> Listen Now
-                </a>
-                <a href="#shows" class="retro-border px-6 py-3 bg-black hover:bg-cyan-900/20 transition">
-                    <i class="fas fa-calendar mr-2"></i> Upcoming Shows
-                </a>
+@ -206,6 +216,67 @@
             </div>
         </div>
     </section>
     
-    <!-- Music Section -->
-    <section id="music" class="py-20 bg-gray-900/50">
+    <!-- Blog/News Section -->
+    <section id="blog" class="py-20 bg-black">
         <div class="container mx-auto px-4">
             <h2 class="font-bebas text-5xl md:text-6xl text-center mb-12 gradient-text">
-                Our Music
+                News & Updates
             </h2>
             
-            <!-- Bandcamp Embed -->
-            <div class="max-w-3xl mx-auto mb-12">
-                <iframe style="border: 0; width: 100%; height: 470px;" 
-                    src="https://bandcamp.com/EmbeddedPlayer/album=2202088403/size=large/bgcol=333333/linkcol=e32c14/tracklist=false/transparent=true/" 
-                    seamless>
-                    <a href="https://giantsofallsizes.bandcamp.com/album/giants-of-all-sizes-demos">
-                        Giants of All Sizes Demos by Giants of All Sizes
-                    </a>
-                </iframe>
-            </div>
-            
-            <!-- Spotify Placeholder -->
-            <div class="max-w-3xl mx-auto text-center">
-                <p class="text-lg mb-4">🎵 Coming soon to Spotify and all streaming platforms!</p>
-                <div class="flex justify-center gap-4">
-                    <a href="#" class="text-3xl hover:text-pink-500 transition">
-                        <i class="fab fa-spotify"></i>
-                    </a>
-                    <a href="#" class="text-3xl hover:text-pink-500 transition">
-                        <i class="fab fa-apple"></i>
-                    </a>
-                    <a href="https://www.youtube.com/@giantsofallsizes" class="text-3xl hover:text-pink-500 transition">
-                        <i class="fab fa-youtube"></i>
-                    </a>
-                    <a href="#" class="text-3xl hover:text-pink-500 transition">
-                        <i class="fab fa-soundcloud"></i>
-                    </a>
+            <div class="max-w-6xl mx-auto">
+                <!-- Featured Posts -->
+                <div id="featured-posts" class="mb-12">
+                    <!-- Featured posts will be loaded here -->
+                </div>
+                
+                <!-- Category Filter -->
+                <div class="flex flex-wrap justify-center gap-4 mb-8">
+                    <button onclick="filterBlogPosts('all')" class="blog-filter-btn active px-4 py-2 bg-pink-500 text-black font-bold rounded transition">
+                        All Posts
+                    </button>
+                    <button onclick="filterBlogPosts('announcement')" class="blog-filter-btn px-4 py-2 bg-gray-700 hover:bg-pink-500 hover:text-black font-bold rounded transition">
+                        Announcements
+                    </button>
+                    <button onclick="filterBlogPosts('release')" class="blog-filter-btn px-4 py-2 bg-gray-700 hover:bg-cyan-500 hover:text-black font-bold rounded transition">
+                        Releases
+                    </button>
+                    <button onclick="filterBlogPosts('tour')" class="blog-filter-btn px-4 py-2 bg-gray-700 hover:bg-orange-500 hover:text-black font-bold rounded transition">
+                        Tour
+                    </button>
+                </div>
+                
+                <!-- Blog Posts Grid -->
+                <div id="blog-posts" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Blog posts will be loaded here -->
+                </div>
+                
+                <!-- Single Post View (Hidden by default) -->
+                <div id="single-post" class="hidden">
+                    <button id="back-to-posts" class="mb-6 text-pink-500 hover:text-pink-400 transition">
+                        <i class="fas fa-arrow-left mr-2"></i> Back to all posts
+                    </button>
+                    
+                    <article class="retro-border p-8 bg-gray-900/50">
+                        <img id="post-image" src="" alt="" class="w-full h-64 md:h-96 object-cover rounded mb-6">
+                        <h1 id="post-title" class="font-bebas text-4xl text-pink-500 mb-4"></h1>
+                        <div id="post-meta" class="flex flex-wrap gap-4 text-sm text-gray-400 mb-6">
+                            <span id="post-date"></span>
+                            <span id="post-author"></span>
+                            <span id="post-category"></span>
+                        </div>
+                        <div id="post-content" class="prose prose-invert max-w-none">
+                            <!-- Post content will be loaded here -->
+                        </div>
+                        <div id="post-tags" class="mt-8 flex flex-wrap gap-2">
+                            <!-- Tags will be loaded here -->
+                        </div>
+                    </article>
                 </div>
             </div>
         </div>
     </section>
+    
     <!-- Shows Section -->
     <section id="shows" class="py-20 bg-gray-900/50">
         <div class="container mx-auto px-4">
+@ -268,6 +339,76 @@
+        </div>
+    </section>
+    
+    <!-- Setlist Archive Section -->
+    <section id="setlists" class="py-20 bg-black">
+        <div class="container mx-auto px-4">
             <h2 class="font-bebas text-5xl md:text-6xl text-center mb-12 gradient-text">
-                Upcoming Shows
+                Setlist Archive
             </h2>
             
-            <!-- View Toggle -->
-            <div class="flex justify-center gap-4 mb-8">
-                <button onclick="toggleShowsView('list')" id="list-view-btn" class="shows-view-btn active px-4 py-2 bg-pink-500 text-black font-bold rounded transition">
-                    <i class="fas fa-list mr-2"></i> List View
-                </button>
-                <button onclick="toggleShowsView('map')" id="map-view-btn" class="shows-view-btn px-4 py-2 bg-gray-700 hover:bg-cyan-500 hover:text-black font-bold rounded transition">
-                    <i class="fas fa-map-marked-alt mr-2"></i> Map View
-                </button>
-                <button onclick="exportShowsCalendar()" class="px-4 py-2 bg-gray-700 hover:bg-orange-500 hover:text-black font-bold rounded transition">
-                    <i class="fas fa-calendar-plus mr-2"></i> Add to Calendar
-                </button>
-            </div>
-            
-            <!-- List View -->
-            <div id="shows-list-view" class="shows-view">
-                <div id="shows-container" class="max-w-3xl mx-auto space-y-6">
-                    <!-- Shows will be loaded here from shows.json -->
-                    <div class="text-center text-gray-400">
-                        <i class="fas fa-spinner fa-spin text-2xl mb-4"></i>
-                        <p>Loading shows...</p>
+            <div class="max-w-6xl mx-auto">
+                <!-- Statistics Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-12">
+                    <div class="retro-border p-4 bg-gray-900/50 text-center">
+                        <div class="text-3xl font-bold text-pink-500" id="stat-total-shows">0</div>
+                        <div class="text-sm text-gray-400">Total Shows</div>
+                    </div>
+                    <div class="retro-border p-4 bg-gray-900/50 text-center">
+                        <div class="text-3xl font-bold text-cyan-500" id="stat-songs-played">0</div>
+                        <div class="text-sm text-gray-400">Songs Played</div>
+                    </div>
+                    <div class="retro-border p-4 bg-gray-900/50 text-center">
+                        <div class="text-3xl font-bold text-pink-500" id="stat-avg-setlist">0</div>
+                        <div class="text-sm text-gray-400">Avg Songs/Show</div>
+                    </div>
+                    <div class="retro-border p-4 bg-gray-900/50 text-center">
+                        <div class="text-3xl font-bold text-cyan-500" id="stat-most-played">-</div>
+                        <div class="text-sm text-gray-400">Most Played</div>
                     </div>
                 </div>
-            </div>
-            
-            <!-- Map View -->
-            <div id="shows-map-view" class="shows-view hidden">
-                <div class="max-w-6xl mx-auto">
-                    <div id="shows-map" class="w-full h-96 bg-gray-800 rounded-lg relative overflow-hidden">
-                        <!-- Map will be rendered here -->
-                        <div class="absolute inset-0 flex items-center justify-center text-gray-400">
-                            <div class="text-center">
-                                <i class="fas fa-map-marked-alt text-4xl mb-2"></i>
-                                <p>Interactive map loading...</p>
-                            </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Setlist List -->
+                    <div>
+                        <h3 class="font-bebas text-2xl text-pink-500 mb-4">Recent Shows</h3>
+                        <div id="setlist-list" class="space-y-4">
+                            <!-- Setlists will be loaded here -->
                         </div>
                     </div>
                     
-                    <!-- Show Details Panel -->
-                    <div id="map-show-details" class="mt-6 retro-border p-6 bg-black/50 hidden">
-                        <h3 class="font-bebas text-2xl text-pink-500 mb-2" id="map-show-venue"></h3>
-                        <p class="text-lg mb-1" id="map-show-date"></p>
-                        <p class="text-gray-400 mb-4" id="map-show-location"></p>
-                        <div id="map-show-actions"></div>
+                    <!-- Selected Setlist Display -->
+                    <div>
+                        <h3 class="font-bebas text-2xl text-cyan-500 mb-4">Setlist Details</h3>
+                        <div id="setlist-display" class="retro-border p-6 bg-gray-900/50">
+                            <p class="text-gray-400 text-center">Select a show to view setlist</p>
+                        </div>
+                        
+                        <!-- Song Request Form -->
+                        <div class="mt-6 retro-border p-6 bg-black/50">
+                            <h4 class="font-bebas text-xl text-pink-500 mb-4">Request a Song!</h4>
+                            <p class="text-sm text-gray-400 mb-4">
+                                Want to hear a specific song at our next show? Let us know!
+                            </p>
+                            <input type="text" id="song-request" placeholder="Song name..."
+                                   class="w-full p-3 bg-gray-900 border border-gray-700 rounded focus:border-pink-500 outline-none mb-3">
+                            <button onclick="submitSongRequest()" class="w-full px-4 py-2 bg-pink-500 hover:bg-pink-600 text-black font-bold transition">
+                                Submit Request
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Most Played Songs -->
+                <div class="mt-12">
+                    <h3 class="font-bebas text-2xl text-pink-500 mb-4">Most Played Songs</h3>
+                    <div id="most-played-songs" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+                        <!-- Most played songs will be loaded here -->
                     </div>
                 </div>
             </div>
-            
-            <p class="text-center text-gray-400 mt-8">
-                <a href="mailto:giantsofallsizes@gmail.com" class="hover:text-pink-500 transition">
-                    <i class="fas fa-envelope mr-2"></i> Contact us for booking
-                </a>
-            </p>
         </div>
     </section>
     
     <!-- About Section -->
     <section id="about" class="py-20 bg-gray-900/50">
         <div class="container mx-auto px-4">
-            <h2 class="font-bebas text-5xl md:text-6xl text-center mb-12 gradient-text">
-                About the Band
-            </h2>
-            
-            <div class="max-w-4xl mx-auto mb-12">
-                <p class="text-lg text-center mb-8">
-                    Giants of All Sizes are a 4-piece genre-bending band from the Philadelphia area. 
-                    We play all kinds of music from funk to metal. If you can't find one song you like 
-                    then you probably hate music. Currently, we are harvesting the best musical fruits 
-                    from Montgomery County, and preparing to deliver them directly to your streaming 
-                    service of choice.
-                </p>
-                
-                <img src="band1.jpg" alt="Giants of All Sizes Band" class="w-full rounded-lg shadow-2xl">
-            </div>
-            
-            <!-- Band Members Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-                <!-- Tommy -->
-                <div class="retro-border p-6 bg-black/50">
-                    <img src="tommy.jpg" alt="Tommy Crotty" class="w-full h-auto rounded mb-4">
-                    <h3 class="font-bebas text-2xl text-pink-500 mb-2">Tommy Crotty</h3>
-                    <p class="text-sm mb-4">
-                        Hi, I'm Tommy! I mostly play drums but I can also play mallet percussion, 
-                        and I like to pretend I know how to play guitar sometimes.
-                    </p>
-                    <p class="text-xs text-gray-400">
-                        Influences: After Midnight – Blink-182, Holiday – Green Day, Zombie – The Cranberries
-                    </p>
-                </div>
-                
-                <!-- Jakob -->
-                <div class="retro-border p-6 bg-black/50">
-                    <img src="jakob.jpeg" alt="Jakob Stein" class="w-full h-auto rounded mb-4">
-                    <h3 class="font-bebas text-2xl text-cyan-500 mb-2">Jakob Stein</h3>
-                    <p class="text-sm mb-4">
-                        My name is Jakob Stein. I am a multi instrumentalist with a focus on guitar. 
-                        I like to make weird music.
-                    </p>
-                    <p class="text-xs text-gray-400">
-                        Influences: The Wheel -IDLES, Flimsier- King Krule, Little Dipper- Hum
-                    </p>
-                </div>
-                
-                <!-- Dylan -->
-                <div class="retro-border p-6 bg-black/50">
-                    <img src="dylan.jpeg" alt="Dylan Renner" class="w-full h-auto rounded mb-4">
-                    <h3 class="font-bebas text-2xl text-pink-500 mb-2">Dylan Renner</h3>
-                    <p class="text-sm mb-4">
-                        I'm a multi instrumentalist with a focus on bass and guitar. I write songs 
-                        sometimes and I enjoy alternate tunings and weird time signatures.
-                    </p>
-                    <p class="text-xs text-gray-400">
-                        Influences: All for You - Chestnut Grove, Endless nameless - nirvana, 
-                        At the turf fields - Giraffes?Giraffes!
-                    </p>
-                </div>
-                
-                <!-- Calvin -->
-                <div class="retro-border p-6 bg-black/50">
-                    <img src="calvin.jpeg" alt="Calvin Cooper" class="w-full h-auto rounded mb-4">
-                    <h3 class="font-bebas text-2xl text-cyan-500 mb-2">Calvin Cooper</h3>
-                    <p class="text-sm mb-4">
-                        Hi, my name is Calvin, and I am a multi instrumentalist and vocalist, 
-                        motivated by my love of God and epic beats.
-                    </p>
-                    <p class="text-xs text-gray-400">
-                        Influences: Disenchanted – MCR, Down in the Valley – The Head and the Heart, 
-                        Bossa Nova Corps – Origami Angel
-                    </p>
-                </div>
-            </div>
+@ -346,7 +487,105 @@
         </div>
     </section>
     
   
-                <!-- Bio Section -->
-                <div class="mb-12">
-                    <h3 class="font-bebas text-2xl text-pink-500 mb-4">Biography</h3>
-                    <div class="retro-border p-6 bg-black/50">
-                        <p id="epk-bio-short" class="text-lg mb-4"></p>
-                        <div id="epk-bio-long" class="hidden space-y-4"></div>
-                        <button id="toggle-bio" class="text-pink-500 hover:text-pink-400 transition mt-4">
-                            Read more <i class="fas fa-chevron-down ml-1"></i>
-                        </button>
-                    </div>
-                </div>
-                
-                <!-- Technical Requirements -->
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-                    <div>
-                        <h3 class="font-bebas text-2xl text-cyan-500 mb-4">Stage Requirements</h3>
-                        <div class="retro-border p-6 bg-black/50">
-                            <ul id="epk-stage-requirements" class="space-y-2 text-gray-300">
-                                <!-- Requirements will be loaded here -->
-                            </ul>
-                        </div>
-                    </div>
-                    <div>
-                        <h3 class="font-bebas text-2xl text-pink-500 mb-4">Technical Info</h3>
-                        <div class="retro-border p-6 bg-black/50">
-                            <dl id="epk-tech-info" class="space-y-2">
-                                <!-- Tech info will be loaded here -->
-                            </dl>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Downloads Section -->
-                <div class="mb-12">
-                    <h3 class="font-bebas text-2xl text-cyan-500 mb-4">Downloads</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4" id="epk-downloads">
-                        <!-- Downloads will be loaded here -->
-                    </div>
-                </div>
-                
-                <!-- Achievements -->
-                <div>
-                    <h3 class="font-bebas text-2xl text-pink-500 mb-4">Achievements</h3>
-                    <div class="retro-border p-6 bg-black/50">
-                        <ul id="epk-achievements" class="space-y-2">
-                            <!-- Achievements will be loaded here -->
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Merch Section -->
-    <section id="merch" class="py-20 bg-black">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="font-bebas text-5xl md:text-6xl mb-12 gradient-text">
-                Band Merch
-            </h2>
-            
-            <p class="text-lg mb-8">Get your Giants of All Sizes gear!</p>
-            
-            <a href="https://my-store-f0f54e.creator-spring.com/" target="_blank" 
-               class="inline-block retro-border px-8 py-4 bg-black hover:bg-pink-900/20 transition text-lg">
-                <i class="fas fa-shopping-cart mr-2"></i> Visit Our Store
-            </a>
-        </div>
-    </section>
-    
-    <!-- Social Media Feed Section -->
-    <section id="social-feed" class="py-20 bg-gray-900/50">
+    <!-- Lyrics Section -->
+    <section id="lyrics" class="py-20 bg-black">
         <div class="container mx-auto px-4">
             <h2 class="font-bebas text-5xl md:text-6xl text-center mb-12 gradient-text">
-                Social Media
-            </h2>
-            
-            <div class="max-w-6xl mx-auto">
-                <!-- Platform Tabs -->
-                <div class="flex flex-wrap justify-center gap-2 mb-8">
-                    <button onclick="showSocialPlatform('instagram')" class="social-tab active px-6 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold rounded transition">
-                        <i class="fab fa-instagram mr-2"></i> Instagram
-                    </button>
-                    <button onclick="showSocialPlatform('twitter')" class="social-tab px-6 py-2 bg-gray-700 hover:bg-blue-500 text-white font-bold rounded transition">
-                        <i class="fab fa-twitter mr-2"></i> Twitter
-                    </button>
-                    <button onclick="showSocialPlatform('youtube')" class="social-tab px-6 py-2 bg-gray-700 hover:bg-red-600 text-white font-bold rounded transition">
-                        <i class="fab fa-youtube mr-2"></i> YouTube
-                    </button>
-                    <button onclick="showSocialPlatform('tiktok')" class="social-tab px-6 py-2 bg-gray-700 hover:bg-black text-white font-bold rounded transition">
-                        <i class="fab fa-tiktok mr-2"></i> TikTok
-                    </button>
-                </div>
-                
-                <!-- Instagram Feed -->
-                <div id="instagram-feed" class="social-platform">
-                    <!-- Instagram Embed - Replace with your actual Instagram embed code -->
-                    <div class="max-w-4xl mx-auto">
-                        <p class="text-center text-gray-400 mb-4">
-                            <i class="fas fa-info-circle mr-2"></i>
-                            To embed Instagram feed: Use a service like Behold.so, SnapWidget, or Instagram's official embed
-                        </p>
-                        <!-- Example: Behold.so embed -->
-                        <!-- <div data-behold-id="YOUR_BEHOLD_ID"></div>
-                        <script src="https://w.behold.so/widget.js" type="module"></script> -->
-                        
-                        <!-- For now, showing latest posts link -->
-                        <div class="text-center">
-                            <a href="https://instagram.com/giantsofallsizes" target="_blank" 
-                               class="inline-block px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold rounded hover:opacity-90 transition">
-                                <i class="fab fa-instagram mr-2"></i> View on Instagram
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Twitter/X Feed -->
-                <div id="twitter-feed" class="social-platform hidden">
-                    <div class="max-w-2xl mx-auto">
-                        <!-- Twitter Timeline Embed -->
-                        <a class="twitter-timeline" data-height="600" data-theme="dark" 
-                           href="https://twitter.com/GOASband?ref_src=twsrc%5Etfw">
-                           Tweets by GOASband
-                        </a>
-                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                    </div>
-                </div>
-                
-                <!-- YouTube Feed -->
-                <div id="youtube-feed" class="social-platform hidden">
-                    <div class="max-w-4xl mx-auto">
-                        <!-- YouTube Channel Embed -->
-                        <script src="https://apis.google.com/js/platform.js"></script>
-                        <div class="g-ytsubscribe" data-channelid="UC_YOUR_CHANNEL_ID" data-layout="full" data-count="default"></div>
-                        
-                        <!-- Latest Videos -->
-                        <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <iframe width="100%" height="315" 
-                                    src="https://www.youtube.com/embed/?listType=user_uploads&list=giantsofallsizes" 
-                                    frameborder="0" allowfullscreen>
-                            </iframe>
-                        </div>
-                        
-                        <div class="text-center mt-6">
-                            <a href="https://www.youtube.com/@giantsofallsizes" target="_blank" 
-                               class="inline-block px-6 py-3 bg-red-600 text-white font-bold rounded hover:bg-red-700 transition">
-                                <i class="fab fa-youtube mr-2"></i> Visit our Channel
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- TikTok Feed -->
-                <div id="tiktok-feed" class="social-platform hidden">
-                    <div class="max-w-4xl mx-auto text-center">
-                        <!-- TikTok doesn't provide official embeds for profiles -->
-                        <p class="text-gray-400 mb-6">
-                            <i class="fas fa-info-circle mr-2"></i>
-                            Check out our latest TikToks on the app!
-                        </p>
-                        <a href="https://tiktok.com/@giantsofallsizes" target="_blank" 
-                           class="inline-block px-6 py-3 bg-black text-white font-bold rounded hover:bg-gray-900 transition">
-                            <i class="fab fa-tiktok mr-2"></i> Follow on TikTok
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Follow CTA -->
-                <div class="mt-12 text-center">
-                    <h3 class="font-bebas text-2xl text-pink-500 mb-4">Follow Us Everywhere!</h3>
-                    <div class="flex justify-center gap-4">
-                        <a href="https://instagram.com/giantsofallsizes" target="_blank" 
-                           class="text-3xl hover:text-pink-500 transition">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="https://twitter.com/GOASband" target="_blank" 
-                           class="text-3xl hover:text-blue-400 transition">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="https://www.youtube.com/@giantsofallsizes" target="_blank" 
-                           class="text-3xl hover:text-red-600 transition">
-                            <i class="fab fa-youtube"></i>
-                        </a>
-                        <a href="https://tiktok.com/@giantsofallsizes" target="_blank" 
-                           class="text-3xl hover:text-black transition">
-                            <i class="fab fa-tiktok"></i>
-                        </a>
-                        <a href="https://facebook.com/giantsofallsizes" target="_blank" 
-                           class="text-3xl hover:text-blue-600 transition">
-                            <i class="fab fa-facebook"></i>
-                        </a>
-                    </div>
-                    <p class="text-sm text-gray-400 mt-4">
-                        <i class="fas fa-sync-alt mr-1"></i> Feed updates every 24 hours
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-
-    <!-- Guestbook Section -->
-    <section id="guestbook" class="py-20 bg-black">
-        <div class="container mx-auto px-4">
-            <h2 class="font-bebas text-5xl md:text-6xl text-center mb-12 gradient-text">
-                Old School Guestbook
+                Song Lyrics
             </h2>
             
             <div class="max-w-4xl mx-auto">
-                <div class="text-center mb-8">
-                    <p class="text-lg text-gray-300 mb-4">
-                        <i class="fas fa-book mr-2"></i> Sign our digital guestbook and leave a message for the band!
-                    </p>
-                    <p class="text-sm text-gray-500">
-                        Leave your mark - just like the old web days!
-                    </p>
+                <!-- Search Bar -->
+                <div class="mb-8">
+                    <input type="text" id="lyrics-search" placeholder="Search for a song..." 
+                           class="w-full p-4 bg-gray-900 border border-gray-700 rounded-lg focus:border-pink-500 outline-none text-lg">
                 </div>
                 
-                <!-- Choose your guestbook option: -->
-                
-                <!-- OPTION 1: HTML Comment Box (Easiest, no GitHub required) -->
-                <div class="retro-border p-6 bg-gray-900/50">
-                    <!-- begin wwww.htmlcommentbox.com -->
-                    <div id="HCB_comment_box" style="background-color:transparent;">
-                        <a href="http://www.htmlcommentbox.com">Widget</a> is loading comments...
-                    </div>
-                    <link rel="stylesheet" type="text/css" href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
-                    <script type="text/javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={};} (function(){var s=document.createElement("script"), l=hcb_user.PAGE || (""+window.location).replace(/'/g,"%27"), h="https://www.htmlcommentbox.com";s.setAttribute("type","text/javascript");s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&mod=%241%24wq1rdBcg%24w8ot5dR4k8Gx2E7FUpSLk1"+"&opts=16798&num=10&ts=1705341973301");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
-                    <style>
-                        #HCB_comment_box { background: transparent !important; }
-                        #HCB_comment_box .hcb-wrapper { background: rgba(0,0,0,0.5) !important; border: 2px solid #ff0080 !important; }
-                        #HCB_comment_box .hcb-wrapper-half { background: #1a1a1a !important; }
-                        #HCB_comment_box textarea, #HCB_comment_box input { background: #2d2d2d !important; color: white !important; border-color: #ff0080 !important; }
-                        #HCB_comment_box .hcb-comment-tb { color: white !important; }
-                        #HCB_comment_box .hcb-link { color: #40e0d0 !important; }
-                        #HCB_comment_box .hcb-comment-body { color: #e0e0e0 !important; }
-                        #HCB_comment_box .home-desc { color: #999 !important; }
-                        #HCB_comment_box .submit { background: #ff0080 !important; color: black !important; border: none !important; }
-                        #HCB_comment_box .submit:hover { background: #ff4da6 !important; }
-                    </style>
-                    <!-- end www.htmlcommentbox.com -->
+                <!-- Song List -->
+                <div id="song-list" class="space-y-4">
+                    <!-- Songs will be loaded here -->
                 </div>
                 
-                <!-- OPTION 2: Giscus (GitHub-based, more features but requires setup) -->
-                <!-- Uncomment this section and comment out Option 1 to use Giscus instead -->
-                <!--
-                <div class="retro-border p-6 bg-gray-900/50">
-                    <script src="https://giscus.app/client.js"
-                            data-repo="giantsofallsizes/website-guestbook"
-                            data-repo-id="YOUR_REPO_ID"
-                            data-category="Guestbook"
-                            data-category-id="YOUR_CATEGORY_ID"
-                            data-mapping="pathname"
-                            data-strict="0"
-                            data-reactions-enabled="1"
-                            data-emit-metadata="0"
-                            data-input-position="top"
-                            data-theme="dark_high_contrast"
-                            data-lang="en"
-                            data-loading="lazy"
-                            crossorigin="anonymous"
-                            async>
-                    </script>
-                </div>
-                -->
-                
-                <!-- Alternative Options -->
-                <div class="mt-12 text-center">
-                    <p class="text-sm text-gray-500 mb-4">
-                        Don't have a GitHub account? Send us a message instead:
-                    </p>
-                    <a href="mailto:giantsofallsizes@gmail.com?subject=Guestbook%20Message" 
-                       class="inline-block px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white transition">
-                        <i class="fas fa-envelope mr-2"></i> Email Us
-                    </a>
-                </div>
-                
-                <!-- Instructions for setup (visible only if not configured) -->
-                <div id="guestbook-setup" class="mt-8 p-6 bg-gray-800 rounded-lg text-sm">
-                    <h4 class="font-bold text-pink-500 mb-2">
-                        <i class="fas fa-cog mr-1"></i> Guestbook Options (for site admin):
-                    </h4>
-                    <div class="space-y-4 text-gray-400">
-                        <div>
-                            <h5 class="font-bold text-cyan-500">Option 1: HTML Comment Box (Currently Active)</h5>
-                            <ul class="list-disc list-inside ml-4 space-y-1">
-                                <li>Free tier includes 100 comments/month</li>
-                                <li>No account required for visitors</li>
-                                <li>Simple moderation dashboard</li>
-                                <li>To customize: visit <a href="https://www.htmlcommentbox.com" target="_blank" class="text-pink-500 hover:text-pink-400">htmlcommentbox.com</a></li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h5 class="font-bold text-cyan-500">Option 2: Giscus (GitHub-based)</h5>
-                            <ul class="list-disc list-inside ml-4 space-y-1">
-                                <li>Completely free, no limits</li>
-                                <li>Requires GitHub account to comment</li>
-                                <li>More features (reactions, threading, etc.)</li>
-                                <li>Setup: Create repo → Enable Discussions → Configure at <a href="https://giscus.app" target="_blank" class="text-pink-500 hover:text-pink-400">giscus.app</a></li>
-                            </ul>
-                        </div>
-                        <p class="mt-4 text-xs">Remove this setup div when you're happy with your choice!</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-  
-    <!-- Newsletter Section -->
-    <section id="newsletter" class="py-20 bg-gray-900/50">
-        <div class="container mx-auto px-4">
-            <div class="max-w-2xl mx-auto text-center">
-                <h2 class="font-bebas text-5xl md:text-6xl mb-8 gradient-text">
-                    Stay Connected
-                </h2>
-                
-                <p class="text-lg mb-8">
-                    Join our mailing list to get updates about new music, shows, and exclusive content!
-                </p>
-                
-                <!-- Buttondown Email Signup Form -->
-                <form action="https://buttondown.com/api/emails/embed-subscribe/giantsofallsizes" 
-                      method="post" 
-                      target="_blank"
-                      id="newsletter-form"
-                      class="flex flex-col md:flex-row gap-4 justify-center">
-                    <input type="email" 
-                           name="email" 
-                           placeholder="your@email.com" 
-                           required
-                           class="px-6 py-3 bg-gray-900 border border-gray-700 rounded focus:border-pink-500 outline-none md:w-96">
-                    <input type="hidden" name="tag" value="website-signup">
-                    <button type="submit" class="px-8 py-3 bg-pink-500 hover:bg-pink-600 text-black font-bold transition">
-                        Subscribe
+                <!-- Lyrics Display -->
+                <div id="lyrics-display" class="hidden">
+                    <button id="back-to-songs" class="mb-6 text-pink-500 hover:text-pink-400 transition">
+                        <i class="fas fa-arrow-left mr-2"></i> Back to songs
                     </button>
-                </form>
-                <p class="text-sm text-gray-400 mt-4">No spam ever</p>
+                    
+                    <div class="retro-border p-6 bg-gray-900/50">
+                        <h3 id="song-title" class="font-bebas text-3xl text-pink-500 mb-2"></h3>
+                        <p id="song-info" class="text-gray-400 mb-6"></p>
+                        
+                        <div id="lyrics-content" class="space-y-6">
+                            <!-- Lyrics will be displayed here -->
+                        </div>
+                        
+                        <div id="song-story" class="mt-8 pt-8 border-t border-gray-700">
+                            <!-- Song story will be displayed here -->
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
     
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-gray-900/50">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="font-bebas text-5xl md:text-6xl mb-12 gradient-text">
-                Contact Us
+    <!-- Photo Gallery Section -->
+    <section id="photos" class="py-20 bg-gray-900/50">
+        <div class="container mx-auto px-4">
+            <h2 class="font-bebas text-5xl md:text-6xl text-center mb-12 gradient-text">
+                Photo Gallery
             </h2>
             
-            <p class="text-lg mb-8">For bookings, press inquiries, or just to say hi!</p>
-            
-            <a href="mailto:giantsofallsizes@gmail.com" class="text-xl hover:text-pink-500 transition">
-                <i class="fas fa-envelope mr-2"></i> giantsofallsizes@gmail.com
-            </a>
+            <div id="photo-galleries" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                <!-- Galleries will be loaded here -->
+            </div>
         </div>
     </section>
     
-    <!-- Footer -->
-    <footer class="bg-black border-t border-pink-500/30 py-8">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <p class="text-sm text-gray-400 mb-4 md:mb-0">
-                    © 2025 Giants of All Sizes. All rights reserved.
-                </p>
-                
-                <div class="flex space-x-6">
-                    <a href="https://giantsofallsizes.bandcamp.com/" target="_blank" 
-                       class="text-2xl hover:text-pink-500 transition">
-                        <i class="fab fa-bandcamp"></i>
-                    </a>
-                    <a href="#" class="text-2xl hover:text-pink-500 transition">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="#" class="text-2xl hover:text-pink-500 transition">
-                        <i class="fab fa-facebook"></i>
-                    </a>
-                    <a href="#" class="text-2xl hover:text-pink-500 transition">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="#" class="text-2xl hover:text-pink-500 transition">
-                        <i class="fab fa-tiktok"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </footer>
-    
-    <!-- Music Player Widget -->
-    <div id="music-player" class="fixed bottom-0 left-0 right-0 bg-black/95 backdrop-blur-md border-t border-pink-500/30 transform translate-y-full transition-transform duration-300 z-40">
-        <div class="container mx-auto px-4 py-3">
-            <div class="flex items-center justify-between">
-                <!-- Player Controls -->
-                <div class="flex items-center space-x-4">
-                    <button id="play-pause-btn" class="text-2xl hover:text-pink-500 transition">
-                        <i class="fas fa-play"></i>
-                    </button>
-                    <button id="prev-track-btn" class="hover:text-pink-500 transition">
-                        <i class="fas fa-backward"></i>
-                    </button>
-                    <button id="next-track-btn" class="hover:text-pink-500 transition">
-                        <i class="fas fa-forward"></i>
-                    </button>
-                </div>
-                
-                <!-- Track Info -->
-                <div class="flex-1 mx-6 text-center">
-                    <p id="track-title" class="font-bold text-sm md:text-base">No track selected</p>
-                    <p id="track-artist" class="text-xs text-gray-400">Select a track to play</p>
-                </div>
-                
-                <!-- Player Toggle -->
-                <button id="player-toggle" class="hover:text-pink-500 transition">
-                    <i class="fas fa-chevron-down"></i>
-                </button>
-            </div>
-            
-            <!-- Progress Bar -->
-            <div class="mt-2 flex items-center space-x-2">
-                <span id="current-time" class="text-xs text-gray-400">0:00</span>
-                <div class="flex-1 bg-gray-700 rounded-full h-1 cursor-pointer" id="progress-bar">
-                    <div class="bg-pink-500 h-full rounded-full transition-all duration-100" id="progress-fill" style="width: 0%"></div>
-                </div>
-                <span id="duration" class="text-xs text-gray-400">0:00</span>
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="fixed inset-0 bg-black/95 z-50 hidden flex items-center justify-center p-4">
+        <button id="close-lightbox" class="absolute top-4 right-4 text-white text-3xl hover:text-pink-500 transition">
+            <i class="fas fa-times"></i>
+        </button>
+        <button id="prev-photo" class="absolute left-4 text-white text-3xl hover:text-pink-500 transition">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button id="next-photo" class="absolute right-4 text-white text-3xl hover:text-pink-500 transition">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+        <div class="max-w-4xl max-h-full">
+            <img id="lightbox-image" src="" alt="" class="max-w-full max-h-[80vh] object-contain">
+            <div class="text-center mt-4">
+                <p id="lightbox-caption" class="text-lg"></p>
+                <p id="lightbox-photographer" class="text-sm text-gray-400"></p>
             </div>
         </div>
     </div>
     
-    <!-- Music Player Toggle Button -->
-    <button id="music-player-btn" class="fixed bottom-4 right-4 bg-pink-500 hover:bg-pink-600 text-black rounded-full w-14 h-14 flex items-center justify-center shadow-lg transition z-30">
-        <i class="fas fa-music text-xl"></i>
-    </button>
+    <!-- EPK Section -->
+    <section id="epk" class="py-20 bg-gray-900/50">
+        <div class="container mx-auto px-4">
+            <h2 class="font-bebas text-5xl md:text-6xl text-center mb-12 gradient-text">
+                Press Kit
+            </h2>
+            
+            <div class="max-w-6xl mx-auto">
+                <!-- Quick Info Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                    <div class="retro-border p-6 bg-black/50">
+                        <h3 class="font-bebas text-xl text-pink-500 mb-2">Genre</h3>
+                        <p id="epk-genre" class="text-gray-300">Loading...</p>
+                    </div>
+                    <div class="retro-border p-6 bg-black/50">
+                        <h3 class="font-bebas text-xl text-cyan-500 mb-2">Hometown</h3>
+                        <p id="epk-hometown" class="text-gray-300">Loading...</p>
+                    </div>
+                    <div class="retro-border p-6 bg-black/50">
+                        <h3 class="font-bebas text-xl text-pink-500 mb-2">Booking</h3>
+                        <p id="epk-booking" class="text-gray-300">Loading...</p>
+                    </div>
+                </div>
+                
+                <!-- Bio Section -->
+                <div class="mb-12">
+                    <h3 class="font-bebas text-2xl text-pink-500 mb-4">Biography</h3>
+@ -546,7 +785,72 @@
+        </div>
+    </section>
     
-    <!-- Leaflet JS for maps -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+
+    <!-- Fan Content Section -->
+    <section id="fan-content" class="py-20 bg-black">
+        <div class="container mx-auto px-4">
+            <h2 class="font-bebas text-5xl md:text-6xl text-center mb-12 gradient-text">
+                Fan Gallery
+            </h2>
+            
+            <div class="max-w-6xl mx-auto">
+                <!-- Filter Buttons -->
+                <div class="flex flex-wrap justify-center gap-4 mb-8">
+                    <button onclick="filterFanContent('all')" class="filter-btn active px-6 py-2 bg-pink-500 text-black font-bold rounded transition">
+                        All
+                    </button>
+                    <button onclick="filterFanContent('fan-art')" class="filter-btn px-6 py-2 bg-gray-700 hover:bg-pink-500 hover:text-black font-bold rounded transition">
+                        Fan Art
+                    </button>
+                    <button onclick="filterFanContent('cover')" class="filter-btn px-6 py-2 bg-gray-700 hover:bg-pink-500 hover:text-black font-bold rounded transition">
+                        Covers
+                    </button>
+                    <button onclick="filterFanContent('photo')" class="filter-btn px-6 py-2 bg-gray-700 hover:bg-pink-500 hover:text-black font-bold rounded transition">
+                        Photos
+                    </button>
+                </div>
+                
+                <!-- Fan Content Grid -->
+                <div id="fan-content-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                    <!-- Fan content will be loaded here -->
+                </div>
+                
+                <!-- Submission Info -->
+                <div class="retro-border p-6 bg-black/50 text-center">
+                    <h3 class="font-bebas text-2xl text-pink-500 mb-4">Submit Your Content!</h3>
+                    <p class="mb-4">We love seeing fan creations! Share your art, covers, or concert photos with us.</p>
+                    <a id="submit-fan-content" href="#" class="inline-block px-6 py-3 bg-pink-500 hover:bg-pink-600 text-black font-bold transition">
+                        <i class="fas fa-upload mr-2"></i> Submit Content
+                    </a>
+                    
+                    <!-- Submission Guidelines (Hidden by default) -->
+                    <div id="submission-guidelines" class="hidden mt-8 text-left">
+                        <h4 class="font-bebas text-xl text-cyan-500 mb-4">Submission Guidelines</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div>
+                                <h5 class="font-bold text-pink-500 mb-2">Fan Art</h5>
+                                <ul id="guidelines-fanArt" class="text-sm space-y-1 text-gray-300">
+                                    <!-- Guidelines will be loaded here -->
+                                </ul>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-pink-500 mb-2">Covers</h5>
+                                <ul id="guidelines-covers" class="text-sm space-y-1 text-gray-300">
+                                    <!-- Guidelines will be loaded here -->
+                                </ul>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-pink-500 mb-2">Photos</h5>
+                                <ul id="guidelines-photos" class="text-sm space-y-1 text-gray-300">
+                                    <!-- Guidelines will be loaded here -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     
-    <script src="script.js"></script>
-</body>
-</html>
+    <!-- Guestbook Section -->
+    <section id="guestbook" class="py-20 bg-black">
+        <div class="container mx-auto px-4">
+@ -654,7 +958,94 @@
+        </div>
+    </section>
+    
+  
+    <!-- Interactive Section -->
+    <section id="interactive" class="py-20 bg-black">
+        <div class="container mx-auto px-4">
+            <h2 class="font-bebas text-5xl md:text-6xl text-center mb-12 gradient-text">
+                Fun Stuff
+            </h2>
+            
+            <div class="max-w-6xl mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Quiz Section -->
+                    <div class="retro-border p-6 bg-gray-900/50">
+                        <h3 class="font-bebas text-2xl text-pink-500 mb-4">Which Band Member Are You?</h3>
+                        
+                        <div id="quiz-container">
+                            <!-- Quiz Start -->
+                            <div id="quiz-start" class="text-center">
+                                <p class="mb-6">Find out which member of Giants of All Sizes matches your personality!</p>
+                                <button onclick="startQuiz()" class="px-6 py-3 bg-pink-500 hover:bg-pink-600 text-black font-bold transition">
+                                    Start Quiz
+                                </button>
+                            </div>
+                            
+                            <!-- Quiz Questions (Hidden by default) -->
+                            <div id="quiz-questions" class="hidden">
+                                <div id="quiz-progress" class="mb-4">
+                                    <div class="bg-gray-700 rounded-full h-2">
+                                        <div id="progress-bar" class="bg-pink-500 h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
+                                    </div>
+                                    <p class="text-sm text-gray-400 mt-2">Question <span id="current-question">1</span> of <span id="total-questions">5</span></p>
+                                </div>
+                                
+                                <div id="question-container">
+                                    <!-- Questions will be loaded here -->
+                                </div>
+                            </div>
+                            
+                            <!-- Quiz Result (Hidden by default) -->
+                            <div id="quiz-result" class="hidden text-center">
+                                <h4 class="font-bebas text-2xl text-cyan-500 mb-4">You are...</h4>
+                                <img id="result-image" src="" alt="" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
+                                <h5 id="result-name" class="font-bebas text-xl text-pink-500 mb-2"></h5>
+                                <p id="result-description" class="mb-6"></p>
+                                <button onclick="resetQuiz()" class="px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white transition">
+                                    Take Again
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Countdown Timer -->
+                    <div class="retro-border p-6 bg-gray-900/50">
+                        <h3 class="font-bebas text-2xl text-cyan-500 mb-4">Countdown</h3>
+                        
+                        <div id="countdown-container" class="space-y-6">
+                            <!-- Countdown timers will be loaded here -->
+                        </div>
+                        
+                        <div class="mt-6 text-center">
+                            <a href="#shows" class="text-pink-500 hover:text-pink-400 transition">
+                                <i class="fas fa-calendar mr-2"></i> See all upcoming events
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Band Stats -->
+                <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="retro-border p-4 bg-gray-900/50 text-center">
+                        <div class="text-2xl font-bold text-pink-500">4</div>
+                        <div class="text-sm text-gray-400">Band Members</div>
+                    </div>
+                    <div class="retro-border p-4 bg-gray-900/50 text-center">
+                        <div class="text-2xl font-bold text-cyan-500">∞</div>
+                        <div class="text-sm text-gray-400">Genres</div>
+                    </div>
+                    <div class="retro-border p-4 bg-gray-900/50 text-center">
+                        <div class="text-2xl font-bold text-pink-500">2023</div>
+                        <div class="text-sm text-gray-400">Established</div>
+                    </div>
+                    <div class="retro-border p-4 bg-gray-900/50 text-center">
+                        <div class="text-2xl font-bold text-cyan-500">100%</div>
+                        <div class="text-sm text-gray-400">Passion</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Newsletter Section -->
+    <section id="newsletter" class="py-20 bg-gray-900/50">
+        <div class="container mx-auto px-4">
